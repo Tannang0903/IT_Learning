@@ -1,10 +1,11 @@
 <?php
     class App {
-        private $controller, $action, $params, $router;
+        private $area, $controller, $action, $params, $router;
 
         function __construct()
         {
             global $routes;
+            $this -> area = '';
             $this -> controller = empty($routes['default_controller']) ? 'home' : $routes['default_controller'];
             $this -> action = 'index';
             $this -> params = [];
@@ -20,28 +21,51 @@
             $url = $this -> getUrl();
             $url = $this -> router -> handleRoute($url);
             $urlArr = array_values(array_filter(explode('/', $url)));
-            
+            // print_r($urlArr);
             // Xử lí controller
             if (!empty($urlArr[0])) {
-                $this -> controller = ucfirst($urlArr[0])."Controller";
+                if (strtolower($urlArr[0]) == 'admin') {
+                    $this -> area = ucfirst('Admin');
+                    $this -> controller = ucfirst($urlArr[1])."Controller";
+                    unset($urlArr[1]);
+                }else{
+                    $this -> controller = ucfirst($urlArr[0])."Controller";
+                }
                 unset($urlArr[0]);
             }
 
-            if (file_exists("app/controllers/".$this -> controller.".php")) {
-                require_once "controllers/".$this -> controller.".php";
-                if (class_exists($this -> controller)) {
-                    $this -> controller = new $this -> controller();
+            if (empty($this -> area)) {
+                if (file_exists("app/controllers/".$this -> controller.".php")) {
+                    require_once "app/controllers/".$this -> controller.".php";
+                    if (class_exists($this -> controller)) {
+                        $this -> controller = new $this -> controller();
+                    }else{
+                        $this -> loadError();
+                    }
                 }else{
                     $this -> loadError();
                 }
             }else{
-                $this -> loadError();
+                if (file_exists("app/controllers/".$this -> area."/".$this -> controller.".php")) {
+                    require_once "app/controllers/".$this -> area."/".$this -> controller.".php";
+                    if (class_exists($this -> controller)) {
+                        $this -> controller = new $this -> controller();
+                    }else{
+                        $this -> loadError();
+                    }
+                }else{
+                    $this -> loadError();
+                }
             }
 
             // Xử lí action
-            if (!empty($urlArr[1])) {
-                $this -> action = $urlArr[1];
-                unset($urlArr[1]);
+            if ((empty($this -> area) || !empty($urlArr[1])) || (!empty($this -> area) && !empty($urlArr[2]))) {
+                $this -> action = empty($this -> area) ? $urlArr[1] : $urlArr[2];
+                if (empty($this -> area)) {
+                    unset($urlArr[1]);
+                }else{
+                    unset($urlArr[2]);
+                }
             }
 
             // Xử lí params

@@ -11,11 +11,10 @@
                 $this -> response -> redirect('home/index');
             }else {
                 if ($this -> request -> isGet()) {
-                    $this -> render('Auth/login');
+                    $this -> render('Auth/login', 'Đăng nhập');
                 }else if ($this -> request -> isPost()) {
                     $user = $this -> userBO -> login($this -> request -> getBody('username'), $this -> request -> getBody('password'));
                     if ($user != null) {
-                        print_r($user);
                         $claims = [
                             new Claims('ID', $user -> getID()),
                             new Claims('Role', 'Admin'),

@@ -1,17 +1,18 @@
 <?php
     class Homecontroller extends BaseController{
-        public $model;
+        private $problemBO;
         public function __construct()
         {
-            $this -> model = $this -> model('HomeModel');
+            require_once "app/models/bo/ProblemBO.php";
+            $this -> problemBO = new ProblemBO();
         }
         public function index() {
-            echo $this -> model -> data;
+            $data['problems'] = $this -> problemBO -> getAllWithAuthor();
+            $this -> render('Home/index', 'Trang chủ', $data);
         }
 
         public function detail($id = '', $slug = '') {
             $this -> data['title'] = 'Hello From Ron';
-            echo $id;
             $this -> render('Home/index', $this -> data);
         }
     }

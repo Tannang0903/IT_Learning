@@ -20,7 +20,7 @@
             return null;
         }
 
-        protected function render($view, $data = [], $layout = 'Layout') {
+        protected function render($view, $title, $data = [], $layout = 'Layout') {
             if (isset($_SESSION['USER'])) {
                 foreach ($_SESSION['USER'] as $claim) {
                     $data['user'][$claim -> getName()] = $claim -> getValue();
@@ -55,6 +55,16 @@
                 if ($k == $key) return $v;
             }
             return null;
+        }
+
+        protected function isInRole($role) {
+            foreach ($_SESSION['USER'] as $claim) {
+                if ($claim -> getName() == 'Role') {
+                    if ($claim -> getValue() == $role) return true;
+                    else return false;
+                }
+            }
+            return false;
         }
     }
 ?>
