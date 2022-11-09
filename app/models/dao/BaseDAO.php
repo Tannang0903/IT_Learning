@@ -6,7 +6,16 @@
             $connection = Connection::getConnection();
             $result = $connection -> query($queryString);
             $connection -> close();
-            return mysqli_fetch_assoc($result);
+            if ($result -> num_rows == 0) return null;
+            if ($result -> num_rows == 1) {
+                return mysqli_fetch_assoc($result);
+            }else{
+                $data = [];
+                while ($row = mysqli_fetch_assoc($result)) {
+                    array_push($data, $row);
+                }
+                return $data;
+            }
         }
 
         // For insert/update/delete

@@ -6,6 +6,7 @@
         private $email;
         private $gender;
         private $roleID;
+        private $avatar;
         private $createdAt;
         private $updatedAt;
 
@@ -33,6 +34,9 @@
         public function setUpdatedAt($updatedAt) {
             $this -> updatedAt = $updatedAt;
         }
+        public function getAvatar() {
+            return $this -> avatar;
+        }
 
         public function getID() {
             return $this -> id;
@@ -45,6 +49,9 @@
         }
         public function getEmail() {
             return $this -> email;
+        }
+        public function setAvatar($avatar) {
+            $this -> avatar = $avatar;
         }
         public function getGender() {
             return $this -> gender;
