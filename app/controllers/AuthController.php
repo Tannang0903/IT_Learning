@@ -26,5 +26,11 @@
                 }
             }
         }
+        public function register() {
+            $this -> render('Auth/register', 'Đăng kí');
+        }
+        public function reset() {
+            $this -> render('Auth/reset', 'Khôi phục mật khẩu');
+        }
     }
 ?>

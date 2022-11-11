@@ -82,8 +82,6 @@
                         ';
                     }
                 ?>
-                
-
             </div>
         </section>
 
@@ -146,7 +144,6 @@
                         }
                     ?>
                 </div>
-
             </div>
         </div>
         <div class="home_footer">
@@ -178,132 +175,13 @@
                                                 <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
                                             </div>
                                         </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
+</div>

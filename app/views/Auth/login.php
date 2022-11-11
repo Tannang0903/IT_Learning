@@ -25,7 +25,7 @@
             </form>
             <div class="login-signup">
                 <span class="text">Chưa phải thành viên
-                    <a href="./Resigtration.html" class="text signup-text">Đăng kí</a>
+                    <a href="" class="text signup-text">Đăng kí</a>
                 </span>
             </div>
         </div>

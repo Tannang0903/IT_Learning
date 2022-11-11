@@ -11,7 +11,7 @@
 
         public function index() {
             $data['problems'] = $this -> problemBO -> getAll();
-            $this -> render('Problem/index', $data);
+            $this -> render('Problem/index','Bài tập', $data);
         }
 
         public function detail($id) {
@@ -22,6 +22,11 @@
         public function insert() {
             $nameValidator = new Validator('Ro', 'Name');
             $data['error']['name'] = $nameValidator -> required() -> minLength(3) -> validate();
+        }
+
+        public function list() {
+            $data['problems'] = $this -> problemBO -> getAll();
+            $this -> render('Problem/list','Danh sách bài tập', $data);
         }
     }
 ?>

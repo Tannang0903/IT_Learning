@@ -23,7 +23,11 @@
         }
         if (isset($config['static_files'][$view]['css'])) {
             foreach ($config['static_files'][$view]['css'] as $css) {
-                echo "<link rel=\"stylesheet\" href=\"".ROOT."/public/css/$css.css\">";
+                if (strstr($css, 'http') != false) {
+                    echo "<link rel=\"stylesheet\" href=\"$css\">";
+                }else{
+                    echo "<link rel=\"stylesheet\" href=\"".ROOT."/public/css/$css.css\">";
+                }
             }
         }
     ?>

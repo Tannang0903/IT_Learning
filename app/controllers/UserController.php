@@ -1,16 +1,12 @@
 <?php
     class UserController extends BaseController {
-        private $userDAO;
+        private $userBO;
         public function __construct()
         {
             parent::__construct();
         }
         public function index() {
-            $this -> response -> redirect('user/detail');
-        }
-
-        public function detail() {
-            echo 'Detail';
+            $this -> response -> redirect('Profile/index');
         }
     }
 ?>

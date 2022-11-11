@@ -21,7 +21,7 @@
 
 .wrap-block-user {
     padding: 30px 0;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     color: var(--main-color);
     background: #fff;
 }
@@ -76,7 +76,7 @@
     height: 100px;
     position: relative;
     padding-bottom: 15px;
-    
+
 }
 
 .main-user-info .user-avatar .level-avatar {
@@ -279,16 +279,15 @@ p {
     display: inline-block;
 }
 
-
-
+/* Home main */
 .container__problem-search {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     align-items: center;
     padding: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 3px;
 }
 
@@ -306,7 +305,6 @@ p {
 .container__problem-level {
     padding: 6px 12px;
     border-radius: 5px;
-    /* background-color: #eee; */
     position: relative;
 }
 
@@ -416,19 +414,6 @@ p {
     border-radius: 50px;
 }
 
-.container__user-item-tag {
-    display: flex;
-}
-
-.container__user-item-tag-item {
-    color: #999;
-    padding: 6px 12px;
-    border-radius: 5px;
-    background-color: #eee;
-    font-size: 1.2rem;
-    margin: 0;
-    margin: 0 5px;
-}
 
 .containerr__user-item-avatar {
     margin: 15px 0;
@@ -465,53 +450,56 @@ p {
     font-weight: 400;
 }
 
-.container_footer{
+.container_footer {
     background-color: #fff;
     padding-top: 5.5rem;
     padding-bottom: 6.5rem;
+    margin-top: 40px;
 }
-@media (min-width: 1366px){
-    .container__container__footer{
+
+@media (min-width: 1366px) {
+    .container__container__footer {
         max-width: 1430px;
     }
 }
+
 .container__container__footer {
     position: relative;
     margin: 0 auto;
     width: 100%;
 }
-.color_title_rank{
-    color: rgb(0, 0, 0)!important;
+
+/* Rank */
+.color_title_rank {
+    color: rgb(0, 0, 0);
 }
-.title_rank{
+
+.title_rank {
     text-align: center;
 }
-.title_detail{
+
+.title_detail {
     font-size: 48px;
     color: rgb(0, 0, 0);
     font-weight: 700;
-    /* margin-bottom: 20px; */
     text-align: center;
 }
-.mb--80 {
-    margin-bottom: 80px!important;
-}
-.font-size--16 {
-    font-size: 16px!important;
-}
-/* .ant-row{
-    display: flex;
-} */
 
-.detail_user{
+.mb--80 {
+    margin-bottom: 80px;
+}
+
+.font-size--16 {
+    font-size: 16px;
+}
+
+.detail_user {
     height: 900px;
     overflow-y: auto;
     cursor: grab;
 }
-[class*=ant-] *{
-    box-sizing: border-box;
-}
-.detail_user_info{
+
+.detail_user_info {
     background-color: #1e2029;
     display: -webkit-flex;
     display: flex;
@@ -523,39 +511,49 @@ p {
     border-radius: 15px;
     margin: 20px;
 }
+
 .text-align--right {
     text-align: right;
 }
+
 .w--40 {
-    width: 40px!important;
+    width: 40px;
 }
+
 .font-size--20 {
-    font-size: 20px!important;
+    font-size: 20px;
 }
+
 .mr--14 {
-    margin-right: 14px!important;
+    margin-right: 14px;
 }
+
 .justify-content--spaceBetween {
     -webkit-justify-content: space-between;
     justify-content: space-between;
 }
+
 .align-items--center {
     -webkit-align-items: center;
     align-items: center;
 }
+
 .display--flex {
-    display: -webkit-flex!important;
-    display: flex!important;
+    display: flex;
 }
+
 .w--full {
     width: 100%;
 }
+
 .mr--16 {
-    margin-right: 16px!important;
+    margin-right: 16px;
 }
+
 .ant-avatar-image {
     background: transparent;
 }
+
 .ant-avatar {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -563,9 +561,9 @@ p {
     padding: 0;
     font-variant: tabular-nums;
     list-style: none;
-    -webkit-font-feature-settings: "tnum","tnum";
-    -moz-font-feature-settings: "tnum","tnum";
-    font-feature-settings: "tnum","tnum";
+    -webkit-font-feature-settings: "tnum", "tnum";
+    -moz-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -579,17 +577,21 @@ p {
     line-height: 32px;
     border-radius: 50%;
 }
+
 .font-size--14 {
-    font-size: 14px!important;
+    font-size: 14px;
     margin: 20px;
     padding-left: 20px;
 }
+
 .color--functional-success-500 {
     color: #2dca8c;
 }
+
 .text-align--right {
     text-align: right;
 }
+
 .font-size--18 {
-    font-size: 18px!important;
+    font-size: 18px;
 }
