@@ -55,9 +55,9 @@
                     </li>
                 </ul>
                 <!-- <ul class="header__menu">
-                            <li class="header__menu-item" id="login">Đăng nhập</li>
-                            <li class="header__menu-item" id="register">Đăng ký</li>
-                        </ul> -->
+                    <li class="header__menu-item" id="login">Đăng nhập</li>
+                    <li class="header__menu-item" id="register">Đăng ký</li>
+                </ul> -->
 
                 <!-- Header User -->
                 <div class="header__user">
