@@ -7,7 +7,7 @@ body {
     max-width: 430px;
     width: 100%;
     background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 200px;
 }
 
@@ -78,7 +78,7 @@ body {
 
 form .text {
     color: #333;
-    font-size: 14px;
+    font-size: 1.6rem;
 }
 
 form a.text {

@@ -101,6 +101,15 @@
     border: 1px solid rgba(81, 154, 250, 0.952);
 }
 
+.header__menu-link {
+    text-decoration: none;
+    color: #515a6e;
+}
+
+.header__menu-item:hover .header__menu-link{
+    color: rgba(81, 154, 250, 0.952);
+}
+
 /* Header sublist */
 .header__subList {
     position: absolute;
