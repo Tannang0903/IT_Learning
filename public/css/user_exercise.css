@@ -3,7 +3,7 @@
     background-color: #f1f1f1;
 }
 
-
+/* Description */
 .problem__main-description {
     background-color: rgb(250 250 250);
     padding: 40px;
@@ -12,6 +12,57 @@
 
 }
 
+.problem__main-heading {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: #515a6e;
+    margin-bottom: 30px;
+}
+
+.problem__main-title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 24px 0 12px;
+    color: #191a1b;
+}
+
+.problem__main-content {
+    font-size: 1.6rem;
+    line-height: 24px;
+    margin: 0 25px;
+    color: #5b6477;
+}
+
+.problem_main-subContent {
+    margin: 0 25px;
+}
+
+.problem__main-subContent-title {
+    font-size: 1.6rem;
+    color: #515a6e;
+}
+
+.problem__main-subContent-content {
+    padding: 0;
+    margin-left: 15px;
+}
+
+.problem__main-subContent-content-item {
+    font-size: 1.6rem;
+    line-height: 24px;
+    color: #5b6477;
+}
+
+.problem__main-description-data-content {
+    padding: 10px;
+    border: 1px solid #e9eaec;
+    font-size: 1.4rem;
+    color: #515a6e;
+    
+}
+
+/* Action */
 .problem__main-action {
     margin-top: 15px;
     background-color: rgb(250 250 250);

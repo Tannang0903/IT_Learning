@@ -81,10 +81,10 @@
                         echo '
                         <ul class="header__menu">
                             <li class="header__menu-item" id="login">
-                                <a href="'.$this -> url("Auth", "login").'">Đăng nhập</a>
+                                <a href="'.$this -> url("Auth", "login").'" class="header__menu-link">Đăng nhập</a>
                             </li>
                             <li class="header__menu-item" id="register">
-                            <a href="'.$this -> url("Auth", "register").'">Đăng kí</a>
+                                <a href="'.$this -> url("Auth", "register").'" class="header__menu-link">Đăng kí</a>
                             </li>
                         </ul>
                         ';
