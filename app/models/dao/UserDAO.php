@@ -8,6 +8,13 @@
             $entity = $this -> executeReader("SELECT * FROM USERS WHERE ID = '$id'");
             return $this -> map($entity);
         }
+
+        public function getByUsername($username) {
+            return $this -> map($this -> executeReader("SELECT * FROM USERS WHERE USERNAME = '$username'"));
+        }
+        public function getByEmail($email) {
+            return $this -> map($this -> executeReader("SELECT * FROM USERS WHERE EMAIL = '$email'"));
+        }
         public function login($username, $password) {
             $entity = $this -> executeReader("SELECT * FROM USERS WHERE (USERNAME = '$username' OR EMAIL = '$username') AND PASSWORD = '$password'");
             return $this -> map($entity);
@@ -15,8 +22,8 @@
 
         public function register($user) {
             $this -> executeNonQuery("
-                INSERT INTO USERS(ID, USERNAME, PASSWORD, EMAIL, GENDER, CREATEDAT, UPDATEDAT, ROLEID)
-                VALUES('$user -> getID()', '$user -> getUsername()', '$user -> getPassword()')
+                INSERT INTO USERS(USER_ID, USERNAME, EMAIL, PASSWORD, ROLEID)
+                VALUES('".$user -> getID()."', '".$user -> getUsername()."', '".$user -> getEmail()."','".$user -> getPassword()."', '".$user -> getRoleID()."')
             ");
         }
 
@@ -27,7 +34,7 @@
         public function map($entity) {
             if ($entity == null) return null;
             $user = new User();
-            $user -> setID($entity['ID']);
+            $user -> setID($entity['USER_ID']);
             $user -> setUsername($entity['USERNAME']);
             $user -> setPassword($entity['PASSWORD']);
             $user -> setEmail($entity['EMAIL']);

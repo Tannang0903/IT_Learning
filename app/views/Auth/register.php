@@ -2,25 +2,52 @@
     <div class="forms">
         <div class="form login">
             <span class="title">Đăng Kí</span>
-            <form action="#">
+            <form action="" method="POST">
                 <div class="input-field">
-                    <input type="text" placeholder="Tên đăng nhập" required>
+                    <input type="text" placeholder="Tên đăng nhập" name="username" required>
                     <i class="fa fa-user"></i>
                 </div>
+                <span class="text-danger">
+                    <?php
+                        if (isset($error['Username'])) {
+                            foreach ($error['Username'] as $errorMessage) {
+                                echo $errorMessage;
+                            }
+                        }
+                    ?>
+                </span>
                 <div class="input-field">
-                    <input type="text" placeholder="Địa chỉ email" required>
+                    <input type="text" placeholder="Địa chỉ email" name="email" required>
                     <i class="fa fa-envelope"></i>
                 </div>
+                <span class="text-danger">
+                    <?php
+                        if (isset($error['Email'])) {
+                            foreach ($error['Email'] as $errorMessage) {
+                                echo $errorMessage;
+                            }
+                        }
+                    ?>
+                </span>
                 <div class="input-field">
-                    <input type="password" placeholder="Mật khẩu" required>
+                    <input type="password" placeholder="Mật khẩu" name="password" required>
                     <i class="fa fa-lock"></i>
                 </div>
+                <span class="text-danger">
+                    <?php
+                        if (isset($error['Password'])) {
+                            foreach ($error['Password'] as $errorMessage) {
+                                echo $errorMessage;
+                            }
+                        }
+                    ?>
+                </span> 
                 <div class="input-field">
-                    <input type="password" placeholder="Nhập lại mật khẩu" required>
+                    <input type="password" placeholder="Nhập lại mật khẩu" name="confirmPassword" required>
                     <i class="fa fa-lock"></i>
                 </div>
                 <div class="input-field button">
-                    <input type="button" value="Đăng Kí">
+                    <input type="submit" value="Đăng Kí">
                 </div>
             </form>
             <div class="login-signup">

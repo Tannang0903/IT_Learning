@@ -15,6 +15,11 @@
         // Navigation property
         private $author;
 
+        public function __construct() {
+            $this -> totalSubmit = 0;
+            $this -> successSubmit = 0;
+        }
+
         public function getId() {
             return $this -> id;
         }

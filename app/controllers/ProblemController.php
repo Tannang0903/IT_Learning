@@ -5,7 +5,6 @@
         {
             parent::__construct();
             require_once 'app/models/bo/ProblemBO.php';
-            require_once 'app/core/Validator.php';
             $this -> problemBO = new ProblemBO();
         }
 

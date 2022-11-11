@@ -18,6 +18,17 @@
             }
         }
 
+        public function executeReaderArray($queryString) {
+            $connection = Connection::getConnection();
+            $result = $connection -> query($queryString);
+            $connection -> close();
+            $data = [];
+            while ($row = mysqli_fetch_assoc($result)) {
+                array_push($data, $row);
+            }
+            return $data;
+        }
+
         // For insert/update/delete
         public function executeNonQuery($queryString) {
             $connection = Connection::getConnection();

@@ -2,7 +2,7 @@
     require_once 'app/models/entity/Problem.php';
     class ProblemDAO extends BaseDAO {
         public function fetchAll() {
-            $result = $this -> executeReader('SELECT * FROM PROBLEMS');
+            $result = $this -> executeReaderArray('SELECT * FROM PROBLEMS');
             $data = [];
             foreach ($result as $entity) {
                 array_push($data, $this -> map($entity));
@@ -11,7 +11,7 @@
         }
 
         public function getProblemsWithAuthor() {
-            $result = $this -> executeReader('SELECT * FROM PROBLEMS INNER JOIN USERS ON PROBLEMS.AUTHORID = USERS.USER_ID');
+            $result = $this -> executeReaderArray('SELECT * FROM PROBLEMS INNER JOIN USERS ON PROBLEMS.AUTHORID = USERS.USER_ID');
             $data = [];
             foreach ($result as $entity) {
                 array_push($data, $this -> map($entity));
@@ -21,13 +21,12 @@
 
         public function getSubmitCountOfProblem($state = null) {
             if ($state == null) {
-                return $this -> executeReader('CALL SP_GetSubmitCountOfProblem(-1)');
+                return $this -> executeReaderArray('CALL SP_GetSubmitCountOfProblem(-1)');
             }else if ($state == true) {
-                return $this -> executeReader('CALL SP_GetSubmitCountOfProblem(1)');
+                return $this -> executeReaderArray('CALL SP_GetSubmitCountOfProblem(1)');
             }else {
-                return $this -> executeReader('CALL SP_GetSubmitCountOfProblem(0)'); 
+                return $this -> executeReaderArray('CALL SP_GetSubmitCountOfProblem(0)'); 
             }
-            return null;
         }
 
         public function getById($id) {
@@ -58,7 +57,7 @@
         }
 
         public function getSubmitOfProblems($id) {
-            $result = $this -> executeReader("SELECT * FROM V_ProblemSubmission WHERE ProblemID = '$id'");
+            $result = $this -> executeReaderArray("SELECT * FROM V_ProblemSubmission WHERE ProblemID = '$id'");
             $data = [];
             foreach ($result as $row) {
                 array_push($data, $row['SubmitID']);

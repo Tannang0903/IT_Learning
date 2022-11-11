@@ -52,9 +52,11 @@
         }
 
         public function validate() {
-            if (count($this -> messages) == 0) return true;
-            else {
-                return $this -> messages;
+            require_once 'app/core/Validate/ValidatorResult.php';
+            if (count($this -> messages) > 0 && !empty($this -> messages)) {
+                return new ValidatorResult(false, $this -> messages);
+            }else{
+                return new ValidatorResult(true, []);
             }
         }
     }
