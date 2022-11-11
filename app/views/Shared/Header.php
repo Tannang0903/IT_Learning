@@ -54,6 +54,7 @@
                         </a>
                     </li>
                 </ul>
+<<<<<<< HEAD
                 <?php
                     if (isset($user)) {
                         echo '
@@ -86,8 +87,6 @@
                         ';
                     }
                 ?>
-
-                <!-- Header User -->
             </div>
         </div>
     </div>
