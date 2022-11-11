@@ -54,31 +54,40 @@
                         </a>
                     </li>
                 </ul>
-                <!-- <ul class="header__menu">
+                <?php
+                    if (isset($user)) {
+                        echo '
+                            <div class="header__user">
+                                <span class="header__user-name">'.$user['Username'].'
+                                    <i class="header__item-icon fa-solid fa-angle-down"></i>
+                                </span>
+                                <ul class="header__user-info">
+                                    <li class="header__user-info-item">
+                                        <a href="" class="header__user-link">Hồ sơ</a>
+                                    </li>
+                                    <li class="header__user-info-item">
+                                        <a href="" class="header__user-link">Bài nộp</a>
+                                    </li>
+                                    <li class="header__user-info-item">
+                                        <a href="" class="header__user-link">Cài đặt</a>
+                                    </li>
+                                    <li class="header__user-info-item">
+                                        <a href="" class="header__user-link">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        ';
+                    }else{
+                        echo '
+                        <ul class="header__menu">
                             <li class="header__menu-item" id="login">Đăng nhập</li>
                             <li class="header__menu-item" id="register">Đăng ký</li>
-                        </ul> -->
+                        </ul>
+                        ';
+                    }
+                ?>
 
                 <!-- Header User -->
-                <div class="header__user">
-                    <span class="header__user-name">Tấn Năng
-                        <i class="header__item-icon fa-solid fa-angle-down"></i>
-                    </span>
-                    <ul class="header__user-info">
-                        <li class="header__user-info-item">
-                            <a href="" class="header__user-link">Hồ sơ</a>
-                        </li>
-                        <li class="header__user-info-item">
-                            <a href="" class="header__user-link">Bài nộp</a>
-                        </li>
-                        <li class="header__user-info-item">
-                            <a href="" class="header__user-link">Cài đặt</a>
-                        </li>
-                        <li class="header__user-info-item">
-                            <a href="" class="header__user-link">Đăng xuất</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
