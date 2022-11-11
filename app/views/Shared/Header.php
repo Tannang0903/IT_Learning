@@ -4,9 +4,9 @@
             <div class="header__content">
                 <ul class="header__list">
                     <li class="header__img">
-                        <a href="" class="header__item-link">
+                        <a href="<?php echo $this -> url('home', 'index')?>" class="header__item-link">
                             <img src="<?php
-                                echo ROOT."/public/images/logo.png";
+                                echo $this -> image('logo.png');
                             ?>" alt="" class="header__logo">
                         </a>
                     </li>
@@ -54,7 +54,6 @@
                         </a>
                     </li>
                 </ul>
-<<<<<<< HEAD
                 <?php
                     if (isset($user)) {
                         echo '
@@ -73,7 +72,7 @@
                                         <a href="" class="header__user-link">Cài đặt</a>
                                     </li>
                                     <li class="header__user-info-item">
-                                        <a href="" class="header__user-link">Đăng xuất</a>
+                                        <a href="'.$this -> url("Auth", 'logout').'" class="header__user-link">Đăng xuất</a>
                                     </li>
                                 </ul>
                             </div>
@@ -81,8 +80,12 @@
                     }else{
                         echo '
                         <ul class="header__menu">
-                            <li class="header__menu-item" id="login">Đăng nhập</li>
-                            <li class="header__menu-item" id="register">Đăng ký</li>
+                            <li class="header__menu-item" id="login">
+                                <a href="'.$this -> url("Auth", "login").'">Đăng nhập</a>
+                            </li>
+                            <li class="header__menu-item" id="register">
+                            <a href="'.$this -> url("Auth", "register").'">Đăng kí</a>
+                            </li>
                         </ul>
                         ';
                     }

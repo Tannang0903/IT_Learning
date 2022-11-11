@@ -66,5 +66,17 @@
             }
             return false;
         }
+
+        protected function image($filename) {
+            return ROOT."/public/images/$filename";
+        }
+
+        protected function url($controller, $action, $id = null) {
+            if ($id != null) {
+                return ROOT."/index.php/$controller/$action/$id";
+            }else{
+                return ROOT."/index.php/$controller/$action";
+            }
+        }
     }
 ?>

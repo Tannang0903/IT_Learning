@@ -4,17 +4,26 @@
             <div class="row">
                 <div class="col c-9">
                     <div class="problem__main">
-                        <div class="problem__main-description"></div>
+                        <div class="problem__main-description">
+                            <h1>
+                                <?php
+                                    echo $problem -> getName();
+                                ?>
+                            </h1>
+                            <?php
+                                echo $problem -> getDescription();
+                            ?>
+                        </div>
 
                         <div class="problem__main-action">
                             <div class="problem__main-selector">
                                 <div class="problem__main-selector-language">
                                     <span class="problem__main-text">Ngôn ngữ: </span>
                                     <select class="problem__main-language-list" id="language_Selector">
-                                        <option value="">language</option>
-                                        <option value="c">c</option>
-                                        <option value="cpp">c++</option>
-                                        <option value="java">java</option>
+                                        <option value="">Language</option>
+                                        <option value="c">C</option>
+                                        <option value="cpp">C++</option>
+                                        <option value="java">Java</option>
                                     </select>
                                     <button class="problem__main-btn-reset" id="btn-reset">
                                         <i class="fa-solid fa-arrow-rotate-left"></i>
@@ -64,21 +73,52 @@
                             </div>
                             <div class="problem__sub-infoProblem-item">
                                 <span class="problem__sub-infoProblem-key">ID</span>
-                                <span class="problem__sub-infoProblem-value">CB01</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo $problem -> getId();
+                                    ?>
+                                </span>
+                            </div>
+                            <div class="problem__sub-infoProblem-item">
+                                <span class="problem__sub-infoProblem-key">Độ khó</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo $problem -> getStrLevel();
+                                    ?>
+                                </span>
+                            </div>
+                            <div class="problem__sub-infoProblem-item">
+                                <span class="problem__sub-infoProblem-key">Giới hạn thời gian</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo ($problem -> getTimeLimit() * 1000).' Ms';
+                                    ?>
+                                </span>
                             </div>
                             <div class="problem__sub-infoProblem-item">
                                 <span class="problem__sub-infoProblem-key">Điểm</span>
-                                <span class="problem__sub-infoProblem-value">100</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo $problem -> getScore();
+                                    ?>
+                                </span>
                             </div>
-                        </div>
-
-                        <div class="problem__sub-sameProblem">
-                            <div class="problem__sub-sameProblem-title">
-                                <i class="fa-solid fa-file"></i>
-                                <span>Bài tập tương tự</span>
+                            <div class="problem__sub-infoProblem-item">
+                                <span class="problem__sub-infoProblem-key">Tác giả</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo $problem -> getAuthor() -> getUsername();
+                                    ?>
+                                </span>
                             </div>
-                            <a href="" class="problem__sub-sameProblem-item">DIVMOD - Thương và dư</a>
-                            <a href="" class="problem__sub-sameProblem-item">LC3A - Đánh máy nhanh</a>
+                            <div class="problem__sub-infoProblem-item">
+                                <span class="problem__sub-infoProblem-key">Ngày tạo</span>
+                                <span class="problem__sub-infoProblem-value">
+                                    <?php
+                                        echo $problem -> getCreatedAt();
+                                    ?>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

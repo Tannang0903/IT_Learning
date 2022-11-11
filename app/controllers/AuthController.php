@@ -21,9 +21,19 @@
                             new Claims('Username', $user -> getUsername())
                         ];
                         $this -> signIn($claims);
+                        $this -> response -> redirect('home/index');
+                    }else{
+                        $data['error'] = 'Tài khoản hoặc mật khẩu không chính xác';
+                        $this -> render('Auth/login', 'Đăng nhập', $data);
                     }
-                    $this -> response -> redirect('home/index');
                 }
+            }
+        }
+
+        public function logout() {
+            if ($this -> isAuthenticated()) {
+                $this -> signOut();
+                $this -> response -> redirect('home');
             }
         }
         public function register() {

@@ -12,6 +12,12 @@
                     <i class="fa fa-lock"></i>
                 </div>
 
+                <?php
+                    if (isset($error)) {
+                        echo $error;
+                    }
+                ?>
+
                 <div class="checkbox-text">
                     <div class="checkbox-content">
                         <input type="checkbox" id="logcheck">
@@ -25,7 +31,9 @@
             </form>
             <div class="login-signup">
                 <span class="text">Chưa phải thành viên
-                    <a href="" class="text signup-text">Đăng kí</a>
+                    <?php
+                        echo '<a href="'.$this -> url("Auth", "register").'" class="text signup-text">Đăng kí</a>';
+                    ?>
                 </span>
             </div>
         </div>

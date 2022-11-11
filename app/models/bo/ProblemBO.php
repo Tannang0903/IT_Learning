@@ -38,6 +38,14 @@
             }
         }
 
+        public function getSingleWithAuthor($id) {
+            if (empty($id)) {
+                return null;
+            }else{
+                return $this -> problemDAO -> getWithAuthorById($id);
+            }
+        }
+
         public function insert($problem) {
             $entity = $this -> problemDAO -> getById($problem -> getId());
             if ($entity != null) {

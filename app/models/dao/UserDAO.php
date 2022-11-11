@@ -9,7 +9,7 @@
             return $this -> map($entity);
         }
         public function login($username, $password) {
-            $entity = $this -> executeReader("SELECT TOP 1 FROM USERS WHERE (USERNAME = '$username' OR EMAIL = '$username') AND PASSWORD = '$password'");
+            $entity = $this -> executeReader("SELECT * FROM USERS WHERE (USERNAME = '$username' OR EMAIL = '$username') AND PASSWORD = '$password'");
             return $this -> map($entity);
         }
 

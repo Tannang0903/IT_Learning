@@ -31,7 +31,11 @@
         }
 
         public function getById($id) {
-            return $this -> map($this -> executeReader("SELECT * FROM PROBLEMS WHERE ID = '$id'"));
+            return $this -> map($this -> executeReader("SELECT * FROM PROBLEMS WHERE PROBLEM_ID = '$id'"));
+        }
+
+        public function getWithAuthorById($id) {
+            return $this -> map($this -> executeReader("SELECT * FROM PROBLEMS INNER JOIN USERS ON PROBLEMS.AUTHORID = USERS.USER_ID WHERE PROBLEM_ID = '$id'"));
         }
 
         public function insert($problem) {
@@ -69,6 +73,8 @@
             $problem -> setName($entity['NAME']);
             $problem -> setDescription($entity['DESCRIPTION']);
             $problem -> setLevel($entity['LEVEL']);
+            $problem -> setTimeLimit($entity['TIMELIMIT']);
+            $problem -> setScore($entity['SCORE']);
             $problem -> setCreatedAt($entity['CREATEDAT']);
             $problem -> setUpdatedAt($entity['UPDATEDAT']);
             $problem -> setAuthorId($entity['AUTHORID']);

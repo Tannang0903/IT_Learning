@@ -8,6 +8,8 @@
         private $updatedAt;
         private $authorID;
         private $totalSubmit;
+        private $score;
+        private $timeLimit;
         private $successSubmit;
 
         // Navigation property
@@ -40,6 +42,12 @@
         }
         public function getAuthorID() {
             return $this -> authorID;
+        }
+        public function getScore() {
+            return $this -> score;
+        }
+        public function getTimelimit() {
+            return $this -> timeLimit;
         }
         public function getAuthor() {
             return $this -> author;
@@ -74,6 +82,12 @@
         }
         public function setAuthor($author) {
             $this -> author = $author;
+        }
+        public function setScore($score) {
+            $this -> score = $score;
+        }
+        public function setTimeLimit($timeLimit) {
+            $this -> timeLimit = $timeLimit;
         }
         public function setTotalSubmit($totalSubmit) {
             $this -> totalSubmit = $totalSubmit;

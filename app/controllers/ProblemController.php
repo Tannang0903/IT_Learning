@@ -9,9 +9,9 @@
             $this -> problemBO = new ProblemBO();
         }
 
-        public function index() {
-            $data['problems'] = $this -> problemBO -> getAll();
-            $this -> render('Problem/index','Bài tập', $data);
+        public function index($id) {
+            $data['problem'] = $this -> problemBO -> getSingleWithAuthor($id);
+            $this -> render('Problem/index', 'Bài tập', $data);
         }
 
         public function detail($id) {
