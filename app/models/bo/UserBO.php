@@ -47,5 +47,41 @@
                 ];
             }
         }
+        public function resetPassword($user){
+            $entity = $this -> userDAO -> getByEmail($user -> getEmail);
+            if($entity != null){
+                $this -> userDAO -> resetPassword($user);
+            }
+        }
+        public function getAll(){
+            return $this -> userDAO -> fetchAll();
+        }
+
+        public function getById($id){
+            if(empty($id)){
+                return null;
+            }else{
+                return $this -> userDAO -> getById($id);
+            }   
+        }
+        public function getByUserName($name){
+            if(empty($name)){
+                return null;
+            }else{
+                return $this -> userDAO ->getByUserName($name);
+            }
+        }
+        public function update($user){
+            $entity = $this -> userDAO -> getById($user -> getID());
+            if($entity != null){
+                $this -> userDAO -> update($user);
+            }
+        }
+        public function remove($id){
+            $user = $this -> userDAO -> getById($id);
+            if($user != null){
+                $this -> userDAO -> remove($id);
+            }
+        }
     }
 ?>
