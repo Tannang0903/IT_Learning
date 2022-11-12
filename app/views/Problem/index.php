@@ -5,14 +5,19 @@
                 <div class="col c-9">
                     <div class="problem__main">
                         <div class="problem__main-description">
-                            <h1>
+                            <h1 class="problem__main-heading">
                                 <?php
                                     echo $problem -> getName();
                                 ?>
                             </h1>
-                            <?php
-                                echo $problem -> getDescription();
-                            ?>
+                            <div class="problem__main-description-item">
+                                <h2 class="problem__main-title">Đề bài</h2>
+                                <p class="problem__main-content">
+                                <?php
+                                    echo $problem -> getDescription();
+                                ?>
+                                </p>
+                            </div>
                         </div>
 
                         <div class="problem__main-action">

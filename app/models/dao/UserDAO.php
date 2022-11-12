@@ -26,6 +26,18 @@
                 VALUES('".$user -> getID()."', '".$user -> getUsername()."', '".$user -> getEmail()."','".$user -> getPassword()."', '".$user -> getRoleID()."')
             ");
         }
+        public function resetPassword($user){
+            $this -> executeNonQuery("
+                UPDATE INTO USERS(PASSWORD) VALUES ('".$user -> getPassword()."') WHERE EMAIL = '$user -> getEmail()'");
+        }
+        public function update($user){
+            $this -> executeNonQuery("
+                UPDATE USERS
+                    SET NAME = '$user -> getName()', PASSWORD = '$user -> getPassword()', EMAIL = '$user -> getEmail()', GENDER = '$user -> getGender()',
+                    ROLEID = '$user -> getRoleID()',CREATEDAT = 'date(\"Y-m-d H:i:s\"), UPDATEDAT = 'date(\"Y-m-d H:i:s\")'
+                WHERE ID = '$user -> getId()' 
+            ");
+        }
 
         public function remove($id) {
             return $this -> executeNonQuery("DELETE FROM USERS WHERE ID = '$id'");
