@@ -11,6 +11,10 @@
             $this -> roleDAO = new RoleDAO();
         }
 
+        public function getById($id) {
+            return $this -> userDAO -> getById($id);
+        }
+
         public function login($username, $password) {
             if (!empty($username) && !empty($password)) {
                 $user = $this -> userDAO -> login($username, $password);

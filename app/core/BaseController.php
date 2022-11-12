@@ -51,8 +51,8 @@
         }
 
         protected function getClaims($key) {
-            foreach ($_SESSION['USER'] as $k => $v) {
-                if ($k == $key) return $v;
+            foreach ($_SESSION['USER'] as $claim) {
+                if ($claim -> getName() == $key) return $claim -> getValue();
             }
             return null;
         }

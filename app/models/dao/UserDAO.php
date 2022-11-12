@@ -5,7 +5,7 @@
             return $this -> executeReader("SELECT * FROM USERS");
         }
         public function getById($id) {
-            $entity = $this -> executeReader("SELECT * FROM USERS WHERE ID = '$id'");
+            $entity = $this -> executeReader("SELECT * FROM USERS WHERE USER_ID = '$id'");
             return $this -> map($entity);
         }
 

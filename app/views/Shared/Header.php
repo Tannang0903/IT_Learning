@@ -63,7 +63,7 @@
                                 </span>
                                 <ul class="header__user-info">
                                     <li class="header__user-info-item">
-                                        <a href="" class="header__user-link">Hồ sơ</a>
+                                        <a href="'.$this -> url("Profile", "index").'" class="header__user-link">Hồ sơ</a>
                                     </li>
                                     <li class="header__user-info-item">
                                         <a href="" class="header__user-link">Bài nộp</a>

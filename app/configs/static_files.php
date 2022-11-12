@@ -50,7 +50,7 @@
                 'user_problem'
             ]
         ], 
-        'Profile/detail' => [
+        'Profile/index' => [
             'css' => [
                 'user_detail'
             ]

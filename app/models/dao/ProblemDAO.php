@@ -65,6 +65,10 @@
             return $data;
         }
 
+        public function getUndoneProblem($userId) {
+            return $this -> executeReaderArray("CALL SP_GetUnDoneProblems('$userId')");
+        }
+
         public function map($entity) {
             if ($entity == null) return null;
             $problem = new Problem();

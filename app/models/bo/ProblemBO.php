@@ -76,6 +76,13 @@
             return $this -> userDAO -> getById($problem -> getAuthorId());
         }
 
+        public function getUndoneProblemOfUser($userId) {
+            $problems = [];
+            foreach ($this -> problemDAO -> getUndoneProblem($userId) as $problemId) {
+                array_push($problems, $this -> problemDAO -> getById($problemId));
+            }
+            return $problems;
+        }
         
     }
 ?>
