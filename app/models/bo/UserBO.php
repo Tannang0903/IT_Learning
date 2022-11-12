@@ -47,7 +47,7 @@
                 ];
             }
         }
-        public function reset($user){
+        public function resetPassword($user){
             $entity = $this -> userDAO -> getByEmail($user -> getEmail);
             if($entity != null){
                 $this -> userDAO -> resetPassword($user);
