@@ -1,9 +1,9 @@
 ## Usage
 Clone this repository by running following command
 ```
-git clone [https://github.com/LeRon1605/ICode.git](https://github.com/LeRon1605/Web.git)
+git clone https://github.com/LeRon1605/Web.git
 ```
-Create database connection configuration file db.php in configs folder following below template
+Create database connection configuration file ```db.php``` in ```app/configs``` folder following below template
 ```
 <?php
     $config['database'] = 
