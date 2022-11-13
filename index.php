@@ -13,7 +13,11 @@
     }else{
         $web_root = 'http://'.$_SERVER['HTTP_HOST']; 
     }
-    $web_root .= str_replace('\\', '/', substr( __DIR__, strpos(__DIR__, 'htdocs') + strlen('htdocs')));
+    if ($_ENV['enviroment'] == 'docker') {
+        $web_root .= str_replace('\\', '/', substr(__DIR__, strpos(__DIR__, '/var/www/html') + strlen('/var/www/html')));
+    }else {
+        $web_root .= str_replace('\\', '/', substr(__DIR__, strpos(__DIR__, 'htdocs') + strlen('htdocs')));
+    }
     define('ROOT', $web_root);
     $app = new App();
 ?>

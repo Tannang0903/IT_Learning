@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile 
+    ports:
+      - 3000:80
+    volumes:
+      - ./app:/var/www/html/app
+      - ./public:/var/www/html/public
+      - ./index.php:/var/www/html/index.php
+    environment:
+      - enviroment=docker
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=ronle75
+      - DB_DATABASE=WEB
+    depends_on:
+      - db
+    restart: always
+  db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.db
+    volumes:
+      - ./db:/var/lib/mysql
+    restart: always
