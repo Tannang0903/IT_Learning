@@ -25,4 +25,7 @@ services:
       dockerfile: Dockerfile.db
     volumes:
       - ./db:/var/lib/mysql
+    ports:
+      - 33306:3306
     restart: always
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8_vietnamese_ci']

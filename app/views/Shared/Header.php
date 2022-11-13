@@ -11,7 +11,7 @@
                         </a>
                     </li>
                     <li class="header__item">
-                        <a href="" class="header__item-link">
+                        <a href="<?php echo $this -> url('problem', 'list')?>" class="header__item-link">
                             <i class="header__item-icon fa-solid fa-book"></i>
                             <p class="header__item-title">Bài tập</p>
                         </a>
@@ -67,9 +67,6 @@
                                     </li>
                                     <li class="header__user-info-item">
                                         <a href="" class="header__user-link">Bài nộp</a>
-                                    </li>
-                                    <li class="header__user-info-item">
-                                        <a href="" class="header__user-link">Cài đặt</a>
                                     </li>
                                     <li class="header__user-info-item">
                                         <a href="'.$this -> url("Auth", 'logout').'" class="header__user-link">Đăng xuất</a>

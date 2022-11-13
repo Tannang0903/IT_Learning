@@ -5,7 +5,6 @@
         {
             parent::__construct();
             require_once 'app/models/bo/ProblemBO.php';
-            require_once 'app/core/Validator.php';
             $this -> problemBO = new ProblemBO();
         }
 
@@ -20,15 +19,11 @@
         }
 
         public function insert() {
-            $nameValidator = new Validator('Ro', 'Name');
-            $data['error']['name'] = $nameValidator -> required() -> minLength(3) -> validate();
-            $this -> render('Admin/Problem/insert','Thêm bài tập', $data);
+            $this -> render('Admin/Problem/insert','Thêm bài tập');
         }
 
         public function summitted() {
-            $nameValidator = new Validator('Ro', 'Name');
-            $data['error']['name'] = $nameValidator -> required() -> minLength(3) -> validate();
-            $this -> render('Admin/Problem/summitted','Danh sách đã nộp', $data);
+            $this -> render('Admin/Problem/summitted','Danh sách đã nộp');
         }
     }
 ?>

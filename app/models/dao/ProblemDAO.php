@@ -66,7 +66,12 @@
         }
 
         public function getUndoneProblem($userId) {
-            return $this -> executeReaderArray("CALL SP_GetUnDoneProblems('$userId')");
+            $result = $this -> executeReaderArray("CALL SP_GetUnDoneProblems('$userId')");
+            $data = [];
+            foreach ($result as $row) {
+                array_push($data, $row['PROBLEM_ID']);
+            }
+            return $data;
         }
 
         public function map($entity) {

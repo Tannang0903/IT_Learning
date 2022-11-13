@@ -20,11 +20,11 @@
                             </div>
                         </div>
 
-                        <div class="problem__main-action">
+                        <form class="problem__main-action" method="POST" action="<?php echo $this -> url('problem', 'submit', $problem -> getId())?>">
                             <div class="problem__main-selector">
                                 <div class="problem__main-selector-language">
                                     <span class="problem__main-text">Ngôn ngữ: </span>
-                                    <select class="problem__main-language-list" id="language_Selector">
+                                    <select class="problem__main-language-list" id="language_Selector" name="lang">
                                         <option value="">Language</option>
                                         <option value="c">C</option>
                                         <option value="cpp">C++</option>
@@ -44,8 +44,9 @@
                                 </div>
                             </div>
                             <div class="problem__main-codeBlcok">
-                                <pre id="codeBlock">
-                                </pre>
+                                <!-- <pre id="codeBlock">
+                                </pre> -->
+                                <textarea name="code"></textarea>
                             </div>
 
                             <div class="problem__main-submit">
@@ -54,7 +55,7 @@
                                     <span>Nôp bài</span>
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
 

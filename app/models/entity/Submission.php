@@ -5,7 +5,6 @@
         private $language;
         private $state;
         private $createdAt;
-        private $updatedAt;
         private $userId;
 
         public function getId() {
@@ -22,9 +21,6 @@
         }
         public function getCreatedAt() {
             return $this -> createdAt;
-        }
-        public function getUpdatedAt() {
-            return $this -> updatedAt;
         }
         public function getUserId() {
             return $this -> userId;
@@ -44,9 +40,6 @@
         }
         public function setCreatedAt($createdAt) {
             $this -> $createdAt = $createdAt;
-        }
-        public function setUpdatedAt($updatedAt) {
-            $this -> updatedAt = $updatedAt;
         }
         public function setUserId($userId) {
             $this -> userId = $userId;

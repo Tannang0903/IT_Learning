@@ -2,13 +2,16 @@
     class UserBO {
         private $userDAO;
         private $roleDAO;
+        private $submissionDAO;
         public function __construct() {
             require_once 'app/models/dao/UserDAO.php';
             require_once 'app/models/dao/RoleDAO.php';
+            require_once 'app/models/dao/SubmissionDAO.php';
             require_once 'app/core/Validate/Validator.php';
             require_once 'app/core/Validate/ValidatorResult.php';
             $this -> userDAO = new UserDAO();
             $this -> roleDAO = new RoleDAO();
+            $this -> submissionDAO = new SubmissionDAO();
         }
 
         public function getById($id) {
@@ -61,13 +64,6 @@
             return $this -> userDAO -> fetchAll();
         }
 
-        public function getById($id){
-            if(empty($id)){
-                return null;
-            }else{
-                return $this -> userDAO -> getById($id);
-            }   
-        }
         public function getByUserName($name){
             if(empty($name)){
                 return null;
@@ -77,9 +73,81 @@
         }
         public function update($user){
             $entity = $this -> userDAO -> getById($user -> getID());
-            if($entity != null){
-                $this -> userDAO -> update($user);
+            if($entity == null) return null;
+            $errors = [];
+            if (!empty($user -> getUsername())) {
+                $validateUsername = new Validator($user -> getUsername(), 'Username');
+                $validateUsername = $validateUsername -> required() -> minLength(6) -> validate();
+                if ($validateUsername -> isFailure()) {
+                    $errors['Username'] = $validateUsername -> getMessage();
+                }
             }
+            if (!empty($user -> getEmail())) {
+                $validateEmail = new Validator($user -> getEmail(), 'Email');
+                $validateEmail = $validateEmail -> required() -> email() -> validate();
+                if ($validateEmail -> isFailure()) {
+                    $errors['Email'] = $validateEmail -> getMessage();
+                }
+            }
+            if (!empty($user -> getScore())) {
+                $validateScore = new Validator($user -> getScore(), 'Score');
+                $validateScore = $validateScore -> required() -> number() -> validate();
+                if ($validateScore -> isFailure()) {
+                    $errors['Score'] = $validateScore -> getMessage();
+                }
+            }
+            if (!empty($user -> getAddress())) {
+                $validateAddress = new Validator($user -> getAddress(), 'Address');
+                $validateAddress = $validateAddress -> required() -> minLength(6) -> validate();
+                if ($validateAddress -> isFailure()) {
+                    $errors['Address'] = $validateAddress -> getMessage();
+                }
+            }
+            if (!empty($user -> getPhone())) {
+                $validatePhone = new Validator($user -> getPhone(), 'Phone');
+                $validatePhone = $validatePhone -> required() -> validate();
+                if ($validatePhone -> isFailure()) {
+                    $errors['Phone'] = $validatePhone -> getMessage();
+                }
+            }
+            if (!empty($user -> getSchool())) {
+                $validateSchool = new Validator($user -> getSchool(), 'School');
+                $validateSchool = $validateSchool -> required() -> validate();
+                if ($validateSchool -> isFailure()) {
+                    $errors['School'] = $validateSchool -> getMessage();
+                }
+            }
+            if (!empty($user -> getAvatar())) {
+                $validateAvatar = new Validator($user -> getAvatar(), 'Avatar');
+                $validateAvatar = $validateAvatar -> required() -> validate();
+                if ($validateAvatar -> isFailure()) {
+                    $errors['Avatar'] = $validateAvatar -> getMessage();
+                }
+            }
+            if (!empty($user -> getBirth())) {
+                $validateBirth = new Validator($user -> getBirth(), 'Birth');
+                $validateBirth = $validateBirth -> required() -> validate();
+                if ($validateBirth -> isFailure()) {
+                    $errors['Birth'] = $validateBirth -> getMessage();
+                }
+            }
+            if (!empty($user -> getGender())) {
+                $validateGender = new Validator($user -> getGender(), 'Gender');
+                $validateGender = $validateGender -> required() -> validate();
+                if ($validateGender -> isFailure()) {
+                    $errors['Gender'] = $validateGender -> getMessage();
+                }
+            }
+            if (!empty($errors) && count($errors) > 0) return $errors;
+            $this -> userDAO -> update($user);
+            return true;
+        }
+
+        public function getSubmitCountOfUser($userId) {
+            return $this -> submissionDAO -> getSubmitCountOfUser($userId);
+        }
+        public function getSuccessSubmitCountOfUser($userId) {
+            return $this -> submissionDAO -> getSubmitCountOfUser($userId, true);
         }
         public function remove($id){
             $user = $this -> userDAO -> getById($id);

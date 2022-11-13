@@ -1,4 +1,7 @@
 <?php
+
+use Aws\EMRContainers\EMRContainersClient;
+
     require 'app/models/entity/User.php';
     class UserDAO extends BaseDAO {
         public function fetchAll() {
@@ -22,8 +25,8 @@
 
         public function register($user) {
             $this -> executeNonQuery("
-                INSERT INTO USERS(USER_ID, USERNAME, EMAIL, PASSWORD, ROLEID)
-                VALUES('".$user -> getID()."', '".$user -> getUsername()."', '".$user -> getEmail()."','".$user -> getPassword()."', '".$user -> getRoleID()."')
+                INSERT INTO USERS(USER_ID, USERNAME, EMAIL, SCORE, PASSWORD, ROLEID)
+                VALUES('".$user -> getID()."', '".$user -> getUsername()."', '".$user -> getEmail()."', 0,'".$user -> getPassword()."', '".$user -> getRoleID()."')
             ");
         }
         public function resetPassword($user){
@@ -31,12 +34,35 @@
                 UPDATE INTO USERS(PASSWORD) VALUES ('".$user -> getPassword()."') WHERE EMAIL = '$user -> getEmail()'");
         }
         public function update($user){
-            $this -> executeNonQuery("
-                UPDATE USERS
-                    SET NAME = '$user -> getName()', PASSWORD = '$user -> getPassword()', EMAIL = '$user -> getEmail()', GENDER = '$user -> getGender()',
-                    ROLEID = '$user -> getRoleID()',CREATEDAT = 'date(\"Y-m-d H:i:s\"), UPDATEDAT = 'date(\"Y-m-d H:i:s\")'
-                WHERE ID = '$user -> getId()' 
-            ");
+            $query = 'UPDATE USERS SET';
+            if (!empty($user -> getUsername())) {
+                $query .= " USERNAME = '".$user -> getUsername()."'";
+            }
+            if (!empty($user -> getEmail())) {
+                $query .= " EMAIL = '".$user -> getEmail()."'";
+            }
+            if (!empty($user -> getGender())) {
+                $query .= " GENDER = '".$user -> getGender()."'";
+            }
+            if (!empty($user -> getAvatar())) {
+                $query .= "AVATAR = '".$user -> getAvatar()."'";
+            }
+            if (!empty($user -> getScore())) {
+                $query .= "SCORE = '".$user -> getScore()."'";
+            }
+            if (!empty($user -> getBirth())) {
+                $query .= "BIRTH = '".$user -> getBirth()."'";
+            }
+            if (!empty($user -> getAddress())) {
+                $query .= "ADDRESS = '".$user -> getAddress()."'";
+            }
+            if (!empty($user -> getPhone())) {
+                $query .= "PHONE = '".$user -> getPhone()."'";
+            }
+            if (!empty($user -> getSchool())) {
+                $query .= "SCHOOL = '".$user -> getSchool()."'";
+            }
+            $this -> executeNonQuery("$query WHERE USER_ID = '".$user -> getId()."'");
         }
 
         public function remove($id) {
@@ -54,6 +80,11 @@
             $user -> setRoleID($entity['ROLEID']);
             $user -> setCreatedAt($entity['CREATEDAT']);
             $user -> setCreatedAt($entity['UPDATEDAT']);
+            $user -> setScore($entity['SCORE']);
+            $user -> setBirth($entity['BIRTH']);
+            $user -> setPhone($entity['PHONE']);
+            $user -> setSchool($entity['SCHOOL']);
+            $user -> setAddress($entity['ADDRESS']);
             return $user;
         }
     }
