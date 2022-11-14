@@ -68,6 +68,21 @@
                 }
             }
 
+            global $configs;
+            $url = strtolower((empty($this -> area) ? '' : $this -> area.'/').str_replace('Controller', '', get_class($this -> controller)).'/'.$this -> action);
+            if (isset($configs['authorization'][$url])) {
+                $auth = $configs['authorization'][$url];
+                if ($auth == 'authenticated') {
+                    if (!$this -> controller -> isAuthenticated()) {
+                        $this -> loadError('unauthorized');
+                    }
+                }else{
+                    if (!$this -> controller -> isInRole($auth)) {
+                        $this -> loadError('unauthorized');
+                    }
+                }
+            }
+
             // Xử lí params
             $this -> params = array_values($urlArr);
 
@@ -80,6 +95,7 @@
 
         public function loadError($name = '404') {
             require_once 'errors/'.$name.'.php';
+            exit();
         }
     }
 ?>

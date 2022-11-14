@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang bạn đang tìm kiếm không tồn tại</title>
-    <link rel="stylesheet" href="<?php echo ROOT?>/public/fonts/fontawesome-free-6.1.2-web/css/all.css">
+    <title>Bạn không có quyền để truy cập tài nguyên này</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
@@ -27,10 +26,10 @@
             font-size: 50px;
         }
         .heading__description {
-            font-size: 20px;
+            font-size: 25px;
             margin-top: 10px;
             font-weight: 300;
-            color: #918587;
+            color: #bbaaad;
         }
         .heading__direction {
             text-decoration: none;
@@ -52,12 +51,12 @@
     </style>
 </head>
 <body>
-    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_aN06YJCbME.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop autoplay></lottie-player>    
+<lottie-player src="https://assets10.lottiefiles.com/temp/lf20_QYm9j9.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay></lottie-player>
     <h1 class="heading__title">
-        404 - PAGE NOT FOUND
+        401 - UNAUTHORIZED
     </h1>
     <p class="heading__description">
-        Trang bạn đang tìm kiếm đã có thể bị xóa hoặc đang được bảo trì.
+        Bạn không có quyền để truy cập tài nguyên này. 
     </p>
     <a class="heading__direction" href="<?php echo ROOT?>/index.php/home">
         <i class="fa-solid fa-arrow-left"></i>

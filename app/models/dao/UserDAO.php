@@ -1,7 +1,4 @@
 <?php
-
-use Aws\EMRContainers\EMRContainersClient;
-
     require 'app/models/entity/User.php';
     class UserDAO extends BaseDAO {
         public function fetchAll() {

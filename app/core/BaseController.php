@@ -32,13 +32,13 @@
             }
         }
 
-        protected function signIn($claims) {
+        public function signIn($claims) {
             if (isset($_SESSION['USER'])) return false;
             $_SESSION['USER'] = $claims;
             return true; 
         }
 
-        protected function signOut() {
+        public function signOut() {
             if (isset($_SESSION['USER'])) {
                 unset($_SESSION['USER']);
                 return true;
@@ -46,18 +46,20 @@
             return false; 
         }
 
-        protected function isAuthenticated() {
+        public function isAuthenticated() {
             return isset($_SESSION['USER']);
         }
 
-        protected function getClaims($key) {
+        public function getClaims($key) {
+            if (!$this -> isAuthenticated()) return null;
             foreach ($_SESSION['USER'] as $claim) {
                 if ($claim -> getName() == $key) return $claim -> getValue();
             }
             return null;
         }
 
-        protected function isInRole($role) {
+        public function isInRole($role) {
+            if (!$this -> isAuthenticated()) return false;
             foreach ($_SESSION['USER'] as $claim) {
                 if ($claim -> getName() == 'Role') {
                     if ($claim -> getValue() == $role) return true;
@@ -67,11 +69,11 @@
             return false;
         }
 
-        protected function image($filename) {
+        public function image($filename) {
             return ROOT."/public/images/$filename";
         }
 
-        protected function url($controller, $action, $id = null) {
+        public function url($controller, $action, $id = null) {
             if ($id != null) {
                 return ROOT."/index.php/$controller/$action/$id";
             }else{

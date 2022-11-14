@@ -1,4 +1,5 @@
 <?php
+    require_once 'app/configs/app.php';
     require_once 'app/configs/routes.php';
     require_once 'app/configs/db.php';
     require_once 'app/core/BaseController.php';
