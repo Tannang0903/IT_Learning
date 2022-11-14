@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="grid">
+    <div class="grid wide">
         <?php
         if (isset($user)) {
             echo '
@@ -72,21 +72,17 @@
 
         <div class="home_main">
             <div class="container__problem-search">
-                <div class="container__problem-search-nonAction">
-                    <span class="container__problem-search-list">Luyện tập hàng ngày</span>
-                </div>
-
                 <div class="container__problem-search-action">
                     <div class="container__problem-level">
                         <span class="container__problem-level-text">Độ khó</span>
                         <i class="fa-solid fa-angle-down"></i>
                         <ul class="container__problem-subLevel">
-                            <li class="container__problem-subLevel-item">All</li>
-                            <li class="container__problem-subLevel-item">Easy</li>
-                            <li class="container__problem-subLevel-item">Medium</li>
+                            <li class="container__problem-subLevel-item">Tất cả</li>
+                            <li class="container__problem-subLevel-item">Dễ</li>
+                            <li class="container__problem-subLevel-item">Trung bình</li>
+                            <li class="container__problem-subLevel-item">Khó</li>
                         </ul>
                     </div>
-
                     <form action="" class="container__problem-form-search">
                         <input type="text" class="container__problem-form-input" placeholder="Tìm kiếm">
                         <i class="container__problem-form-icon fa-solid fa-magnifying-glass"></i>

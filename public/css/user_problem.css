@@ -6,7 +6,7 @@
 
 /* Exercise */
 .container__problem-header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .container__statistic {
@@ -167,6 +167,7 @@
     padding: 15px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 3px;
+    margin-bottom: 40px;
 }
 
 .container__problem-search-list {
@@ -204,12 +205,12 @@
     display: none;
     position: absolute;
     background-color: #fff;
-    left: 0;
+    right: 0;
     padding: 0;
     top: 25px;
     list-style: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 100px;
+    width: 150px;
     border-radius: 3px;
     overflow: hidden;
 }
