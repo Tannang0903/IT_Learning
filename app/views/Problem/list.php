@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col c-9">
                         <div class="container__statistic">
-                            <img src=<?php echo ROOT."/public/images/training.jpg" ?> alt="" class="container__statistic-image">
+                            <img src=<?php echo $this -> image('training.jpg') ?> alt="" class="container__statistic-image">
                             <div class="container__statistic-data">
                                 <img src=<?php echo ROOT."/public/images/ChallengesIcon.svg" ?> alt="" class="container__statistic-rank-img">
                                 <div class="container__statistic-data-info">
@@ -80,388 +80,41 @@
 
             <div class="container__problem-body">
                 <div class="row">
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
+                    <?php
+                        foreach ($problems as $problem) {
+                            echo '
+                                <div class="col c-3">
+                                    <div class="container__user-item">
+                                        <div class="container__user-item-task">
+                                            <a href="" class="container__user-item-nameEx">'.$problem -> getName().'</a>
+                                        </div>
+                                        <div class="container__user-item-tag">
+                                            <p class="container__user-item-level-easy">'.$problem -> getStrLevel().'</p>
+                                        </div>
+                                        <div class="containerr__user-item-avatar">
+                                            <img src="'.$this -> image('default_avatar.png').'" alt="" class="containerr__user-item-avatar-rim">
+                                        </div>
+                                        <a href="" class="containerr__user-item-owner">'.$problem -> getAuthor() -> getUsername().'</a>
+            
+                                        <div class="container__user-item-info">
+                                            <div class="container__user-item-content">
+                                                <i class="container__user-item-icon fa-solid fa-user-group"></i>
+                                                <span class="containe__user-item-text">'.$problem -> getSuccessSubmit().'/'.$problem -> getTotalSubmit().'</span>
+                                            </div>
+                                            <div class="container__user-item-content">
+                                                <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
+                                                <span class="container__user-item-text">80</span>
+                                            </div>
+                                            <div class="container__user-item-content">
+                                                <i class="container__user-item-icon fa-regular fa-heart"></i>
+                                                <span class="container__user-item-text">100</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-medium">Medium</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-medium">Medium</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-medium">Medium</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-medium">Medium</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col c-3">
-                        <div class="container__user-item">
-                            <div class="container__user-item-task">
-                                <a href="" class="container__user-item-nameEx">isSortedArray</a>
-                                <span class="container__user-item-level-easy">Easy</span>
-                            </div>
-                            <div class="container__user-item-tag">
-                                <p class="container__user-item-tag-item">Array</p>
-                                <p class="container__user-item-tag-item">Array</p>
-                            </div>
-                            <div class="containerr__user-item-avatar">
-                                <img src="./assets/img/User-10.svg" alt="" class="containerr__user-item-avatar-rim">
-                            </div>
-                            <a href="" class="containerr__user-item-owner">tan_nang_0903</a>
-
-                            <div class="container__user-item-info">
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                    <span class="containe__user-item-text">5759/5820</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                    <span class="container__user-item-text">80</span>
-                                </div>
-                                <div class="container__user-item-content">
-                                    <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                    <span class="container__user-item-text">100</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            ';
+                        }
+                    ?>
                 </div>
             </div>
         </div>

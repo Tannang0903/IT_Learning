@@ -9,15 +9,15 @@
                     <div class="user__card-detail-block">
                         <div class="user__card-detail">
                             <span class="user__card-detail-heading">Đã đạt</span>
-                            <span>3</span>
+                            <span><?php echo $successSubmitCount ?></span>
                         </div>
                         <div class="user__card-detail">
                             <span class="user__card-detail-heading">Lần nộp</span>
-                            <span>1024</span>
+                            <span><?php echo $submitCount ?></span>
                         </div>
                         <div class="user__card-detail">
                             <span class="user__card-detail-heading">Điểm</span>
-                            <span>3333</span>
+                            <span><?php echo $me -> getScore()?></span>
                         </div>
                     </div>
                 </div>
@@ -28,29 +28,29 @@
             <div class="col user__info">
                 <div class="user__info-block">
                     <label class="user__info-label">Họ tên</label>
-                    <input class="user__info-detail" type="text" value="<?php echo $me -> getUsername()?>" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getUsername()?>" placeholder="Nhập Username" />
                     <span class="validation-error">Họ tên không hợp lệ</span>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Địa chỉ</label>
-                    <input class="user__info-detail" type="text" value="<?php echo $me -> getEmail()?>" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getAddress()?>" placeholder="Nhập địa chỉ"/>
                     <span class="validation-error">Họ tên không hợp lệ</span>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Giới tính</label>
-                    <input class="user__info-detail" type="text" value="<?php echo $me -> getStrGender()?>" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getStrGender()?>" placeholder="Chọn giới tính" />
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Ngày sinh</label>
-                    <input class="user__info-detail" type="date" value="<?php echo $me -> getCreatedAt()?>" />
+                    <input class="user__info-detail" type="date" value="<?php echo $me -> getBirth()?>" placeholder="Nhập ngày sinh"/>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Gmail</label>
-                    <input class="user__info-detail" type="text" value="<?php echo $me -> getEmail()?>" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getEmail()?>" placeholder="Nhập địa chỉ email"/>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Số điện thoại</label>
-                    <input class="user__info-detail" type="text" value="0905857760" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getPhone()?>" placeholder="Nhập số điện thoại"/>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Trạng thái</label>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Trường học</label>
-                    <input class="user__info-detail" type="text" value="Trường Đại học Bách Khoa - Đại học Đà Nẵng" />
+                    <input class="user__info-detail" type="text" value="<?php echo $me -> getSchool()?>" placeholder="Nhập trường học"/>
                 </div>
                 <div class="user__info-block">
                     <label class="user__info-label">Cập nhật lần cuối</label>
@@ -69,7 +69,7 @@
         <div class="row user__statistic">
             <h3 class="col col-3 user__title">
                 <i class="fa-solid fa-circle-check"></i>
-                Danh sách bài đã vượt qua
+                Danh sách bài chưa vượt qua
             </h3>
         </div>
         <div class="row user__statistic-block">

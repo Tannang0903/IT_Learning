@@ -22,6 +22,7 @@
             $connection = Connection::getConnection();
             $result = $connection -> query($queryString);
             $connection -> close();
+            if ($result -> num_rows == 0) return [];
             $data = [];
             while ($row = mysqli_fetch_assoc($result)) {
                 array_push($data, $row);
@@ -37,6 +38,14 @@
             return $result; // True or False
         }
 
+        public function executeScalar($queryString) {
+            $connection = Connection::getConnection();
+            $result = $connection -> query($queryString);
+            $connection -> close();
+            if ($result -> num_rows == 0) return null;
+            $result = mysqli_fetch_array($result);
+            return $result[0];
+        }
         public abstract function map($entity);
     }
 ?>

@@ -9,7 +9,9 @@
         private $avatar;
         private $score;
         private $birth;
+        private $address;
         private $phone;
+        private $school;
         private $createdAt;
         private $updatedAt;
 
@@ -45,6 +47,12 @@
         }
         public function setPhone($phone) {
             $this -> phone = $phone;
+        }
+        public function setSchool($school) {
+            $this -> school = $school;
+        }
+        public function setAddress($address) {
+            $this -> address = $address;
         }
 
         public function getAvatar() {
@@ -92,6 +100,12 @@
         }
         public function getPhone() {
             return $this -> phone;
+        }
+        public function getSchool() {
+            return $this -> school;
+        }
+        public function getAddress() {
+            return $this -> address;
         }
     }
 ?>
