@@ -55,6 +55,7 @@
 
 .header__item:hover {
     border-bottom: 2px solid rgba(81, 154, 250, 0.952);
+    cursor: pointer;
 }
 
 .header__item:hover .header__item-link {
@@ -99,6 +100,7 @@
 .header__menu-item:hover {
     color: rgba(81, 154, 250, 0.952);
     border: 1px solid rgba(81, 154, 250, 0.952);
+    cursor: pointer;
 }
 
 .header__menu-link {
@@ -131,6 +133,7 @@
 
 .header__subItem:hover {
     background-color: rgb(233, 233, 233);
+    cursor: pointer;
 }
 
 .header__subItem-link {
@@ -189,6 +192,7 @@
 
 .header__user-info-item:hover {
     background-color: rgb(233, 233, 233);
+    cursor: pointer;
 }
 
 .header__user-link {

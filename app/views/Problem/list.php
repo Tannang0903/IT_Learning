@@ -64,9 +64,10 @@
                         <span class="container__problem-level-text">Độ khó</span>
                         <i class="fa-solid fa-angle-down"></i>
                         <ul class="container__problem-subLevel">
-                            <li class="container__problem-subLevel-item">All</li>
-                            <li class="container__problem-subLevel-item">Easy</li>
-                            <li class="container__problem-subLevel-item">Medium</li>
+                            <li class="container__problem-subLevel-item">Tất cả</li>
+                            <li class="container__problem-subLevel-item">Dễ</li>
+                            <li class="container__problem-subLevel-item">Trung bình</li>
+                            <li class="container__problem-subLevel-item">Khó</li>
                         </ul>
                     </div>
 

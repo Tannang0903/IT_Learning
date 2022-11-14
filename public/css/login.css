@@ -1,121 +1,211 @@
-body {
-    display: flex;
-    justify-content: center;
-}
-.container {
-    position: relative;
-    max-width: 430px;
-    width: 100%;
-    background: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 200px;
-}
-
-.container .forms {
-    padding: 30px;
-}
-
-.container .forms .title {
-    position: relative;
-    font-size: 27px;
-    font-weight: 600;
-}
-
-.form .title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background-color: black;
-    border-radius: 25px;
-}
-
-.form .input-field {
-    margin-top: 30px;
-    height: 50px;
-    width: 100%;
-    margin-top: 30px;
-}
-
-.input-field input {
+html {
     height: 100%;
-    width: 100%;
-    padding: 0 35px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    border-bottom: 2px solid #ccc;
-    border-top: 2px solid transparent;
 }
 
-.input-field i {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(#5982ce, #ffffff);
+}
+
+.login-box {
     position: absolute;
-    transform: translateY(-50%);
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .7);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+}
+
+.login-box .title {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    position: absolute;
+    top: 0;
     left: 0;
-    color: #999;
-    font-size: 23px;
-    padding-top: 50px;
-    padding-left: 30px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
 }
 
-.form .checkbox-text {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.checkbox-text .checkbox-content {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox-content input {
-    margin: 0 8px -2px 4px;
-    accent-color: #4070f4;
-}
-
-form .text {
-    color: #333;
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #00cdd7;
     font-size: 1.6rem;
 }
 
-form a.text {
-    color: #4070f4;
+.login-box form .button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #00cdd7;
+    font-size: 16px;
     text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin: 40px 0 0 100px;
+    letter-spacing: 4px;
 }
 
-form a:hover {
-    text-decoration: underline;
-}
-
-.form .button {
-    margin-top: 35px;
-}
-
-.form .button input {
-    border: none;
+.login-box .button:hover {
+    background: #00cdd7;
     color: #fff;
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    background-color: #4070f4;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #00cdd7,
+        0 0 25px #00cdd7,
+        0 0 50px #00cdd7,
+        0 0 100px #00cdd7;
 }
 
-.button input:hover {
-    background-color: #265df2;
+.login-box .button span {
+    position: absolute;
+    display: block;
 }
 
-.form .login-signup {
+.login-box .button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00cdd7);
+    animation: btn-anim1 1s linear infinite;
+}
+
+.checkbox-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.button input {
+    background: none;
+    border: 0;
+    color: #fff;
+}
+
+.login-signup {
     margin-top: 30px;
     text-align: center;
     font-size: 1.6rem;
 }
 
-.form a.text-dk {
-    align-items: center;
+.errorInfo {
+    font-size: 1.2rem;
+    color: rgb(255 27 27);
+}
+
+.text-danger {
+    color: rgb(255 27 27);
+    font-size: 1.2rem;
+}
+
+@keyframes btn-anim1 {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.login-box .button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #00cdd7);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.login-box .button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #00cdd7);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.login-box .button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #00cdd7);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
 }

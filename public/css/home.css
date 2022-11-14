@@ -281,14 +281,8 @@ p {
 
 /* Home main */
 .container__problem-search {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     align-items: center;
-    padding: 15px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 3px;
 }
 
 .container__problem-search-list {
@@ -303,9 +297,12 @@ p {
 }
 
 .container__problem-level {
-    padding: 6px 12px;
-    border-radius: 5px;
     position: relative;
+    padding: 5px 40px;
+    color: #666;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-level::before {
@@ -325,12 +322,12 @@ p {
     display: none;
     position: absolute;
     background-color: #fff;
-    left: 0;
+    right: 0;
     padding: 0;
     top: 25px;
     list-style: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 100px;
+    width: 150px;
     border-radius: 3px;
     overflow: hidden;
 }
@@ -343,6 +340,7 @@ p {
 
 .container__problem-subLevel-item:hover {
     background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 .container__problem-level-text {
@@ -360,6 +358,9 @@ p {
 .container__problem-form-input {
     padding: 6px 12px;
     color: #666;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-form-icon {

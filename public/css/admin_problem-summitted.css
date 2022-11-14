@@ -1,6 +1,9 @@
+body {
+    background-color: #f1f1f1;
+}
+
 .container {
     padding: 100px 0 60px;
-    background-color: #f1f1f1;
 }
 
 .list__exercise-card {
@@ -49,7 +52,7 @@ table {
 
 th {
     text-align: center;
-    font-size: 14px;
+    font-size: 1.8rem;
     padding: 10px;
     font-weight: bolder;
     border-bottom: 1px solid #ddd;
@@ -57,18 +60,17 @@ th {
 
 td {
     text-align: center;
-    padding: 10px;
     font-size: 12px;
     border-bottom: 1px solid #ddd;
     padding: 20px;
+    font-size: 1.4rem;
 }
 
-/* tr:nth-child(even) {
+tbody tr:nth-child(2n) {
     background-color: #f2f2f2;
+}
 
-} */
-
-tr:hover {
+tbody tr:hover {
     background-color: #ddd;
 }
 

@@ -1,11 +1,12 @@
+body {
+    background-color: #f1f1f1;
+}
 .container {
     padding: 100px 0 60px;
-    background-color: #f1f1f1;
 }
 
 .list__info {
     background-color: white;
-    padding: 0;
     border-radius: 10px;
 }
 
@@ -17,7 +18,7 @@ table {
 
 th {
     text-align: center;
-    font-size: 14px;
+    font-size: 1.8rem;
     padding: 10px;
     font-weight: bolder;
     border-bottom: 1px solid #ddd;
@@ -25,13 +26,17 @@ th {
 
 td {
     text-align: center;
-    padding: 10px;
     font-size: 12px;
     border-bottom: 1px solid #ddd;
     padding: 20px;
+    font-size: 1.4rem;
 }
 
-tr:hover {
+/* tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+} */
+
+tbody tr:hover {
     background-color: #ddd;
 }
 
@@ -40,6 +45,7 @@ tr:hover {
     padding: 5px 10px;
     border-radius: 5px;
 }
+
 
 /* success */
 .success {
@@ -94,9 +100,11 @@ tr:hover {
 }
 
 .container__problem-level {
-    padding: 6px 12px;
-    border-radius: 5px;
+    padding: 6px 20px;
     position: relative;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-level::before {
@@ -118,7 +126,7 @@ tr:hover {
     background-color: #fff;
     right: 0;
     padding: 0;
-    top: 25px;
+    top: 40px;
     list-style: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 100px;
@@ -135,6 +143,7 @@ tr:hover {
 
 .container__problem-subLevel-item:hover {
     background-color: #f1f1f1;
+    cursor: pointer;
 }
 
 .container__problem-level-text {
@@ -150,22 +159,29 @@ tr:hover {
 }
 
 .container__problem-form-input {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: #666;
+    font-size: 1.4rem;
+    border-radius: 20px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-form-icon {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 10px;
     color: #666;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
 }
 
 .action_product {
-    border: 1px solid #ccc;
     font-size: 1.5rem;
-    margin-left: 10px;
+    margin-left: 40px;
+    border-radius: 20px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    padding: 6px 20px;
 }
 
 .action_product:hover {
@@ -176,4 +192,12 @@ tr:hover {
 .action_btn {
     display: flex;
     justify-content: space-around;
+}
+
+
+.action_btn a,
+.action_btn button{
+    font-size: 1.4rem;
+    width: 35px;
+    height: 35px;
 }
