@@ -13,19 +13,22 @@
         'Home/index' => [
             'css' => [
                 'home'
-            ],
-            'js' => [
-                'home'
             ]
         ],
         'Auth/login' => [
             'css' => [
+                'login'
+            ],
+            'js' => [
                 'login'
             ]
         ],
         'Auth/register' => [
             'css' => [
                 'login'
+            ],
+            'js' => [
+                'register'
             ]
         ],
         'Auth/reset' => [

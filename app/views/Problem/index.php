@@ -44,9 +44,9 @@
                                 </div>
                             </div>
                             <div class="problem__main-codeBlcok">
-                                <!-- <pre id="codeBlock">
-                                </pre> -->
-                                <textarea name="code"></textarea>
+                                <pre id="codeBlock">
+                                </pre>
+                                <!-- <textarea id="codeBlock" name="code"></textarea> -->
                             </div>
 
                             <div class="problem__main-submit">
@@ -74,8 +74,8 @@
 
                         <div class="problem__sub-infoProblem">
                             <div class="problem__sub-infoProblem-title">
-                                <i class="fa-solid fa-circle-info"></i>
-                                <span>Thông tin bài tập</span>
+                                <i class="problem__sub-header-icon fa-solid fa-circle-info"></i>
+                                <span class="problem__sub-header-text">Thông tin bài tập</span>
                             </div>
                             <div class="problem__sub-infoProblem-item">
                                 <span class="problem__sub-infoProblem-key">ID</span>

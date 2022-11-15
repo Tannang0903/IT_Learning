@@ -6,7 +6,7 @@
                     <div class="container__problem-search-nonAction">
                         <span class="container__problem-search-list">Danh sách bài tập</span>
                         <div class="btn action_product">
-                            Thêm sản phẩm
+                            Thêm bài tập
                         </div>
                     </div>
 

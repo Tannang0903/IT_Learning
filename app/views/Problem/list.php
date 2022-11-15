@@ -89,7 +89,7 @@
                                             <a href="" class="container__user-item-nameEx">'.$problem -> getName().'</a>
                                         </div>
                                         <div class="container__user-item-tag">
-                                            <p class="container__user-item-level-easy">'.$problem -> getStrLevel().'</p>
+                                            <p class="container__user-item-level easy">'.$problem -> getStrLevel().'</p>
                                         </div>
                                         <div class="containerr__user-item-avatar">
                                             <img src="'.$this -> image('default_avatar.png').'" alt="" class="containerr__user-item-avatar-rim">

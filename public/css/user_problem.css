@@ -182,10 +182,14 @@
 }
 
 .container__problem-level {
-    padding: 6px 12px;
-    border-radius: 5px;
-    background-color: #eee;
     position: relative;
+    padding: 6px 40px;
+    color: #666;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    cursor: pointer;
+    background-color: #fff;
 }
 
 .container__problem-level::before {
@@ -193,7 +197,7 @@
     position: absolute;
     top: 25px;
     left: 0;
-    width: 90px;
+    width: 150px;
     height: 20px;
 }
 
@@ -238,8 +242,11 @@
 }
 
 .container__problem-form-input {
-    padding: 6px 12px;
+    padding: 8px 12px;
     color: #666;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-form-icon {
@@ -268,7 +275,7 @@
 
 .container__user-item-nameEx {
     color: #000;   
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-decoration: none;
     font-weight: 600;
     margin-right: 4px;
@@ -278,20 +285,20 @@
     text-decoration: underline;
 }
 
-.container__user-item-level-easy {
+.container__user-item-level {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     padding: 5px 10px;
-    background-color: #77c148;
     border-radius: 50px;
+    margin: 0;
 }
 
-.container__user-item-level-medium {
-    color: #fff;
-    font-size: 1.2rem;
-    padding: 5px 10px;
+.easy {
+    background-color: #77c148;
+}
+
+.medium {
     background-color: #faa05e;
-    border-radius: 50px;
 }
 
 .container__user-item-tag {
@@ -303,7 +310,7 @@
     padding: 6px 12px;
     border-radius: 5px;
     background-color: #eee;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin: 0;
     margin: 0 5px;
 }
