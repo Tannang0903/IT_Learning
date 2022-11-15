@@ -30,6 +30,15 @@
                                         <option value="cpp">C++</option>
                                         <option value="java">Java</option>
                                     </select>
+
+                                    <!-- <div class="nice-select right" tabindex="0" id="language_Selector" name="lang">
+                                        <span class="current">Language</span>
+                                        <ul class="list">
+                                            <li data-value="easy" value="c" class="option">C</li>
+                                            <li data-value="medium" value="cpp" class="option">C++</li>
+                                            <li data-value="hard" value="java" class="option">Java</li>
+                                        </ul>
+                                    </div> -->
                                     <button class="problem__main-btn-reset" id="btn-reset">
                                         <i class="fa-solid fa-arrow-rotate-left"></i>
                                     </button>
@@ -72,8 +81,8 @@
 
                         <div class="problem__sub-infoProblem">
                             <div class="problem__sub-infoProblem-title">
-                                <i class="fa-solid fa-circle-info"></i>
-                                <span>Thông tin bài tập</span>
+                                <i class="problem__sub-header-icon fa-solid fa-circle-info"></i>
+                                <span class="problem__sub-header-text">Thông tin bài tập</span>
                             </div>
                             <div class="problem__sub-infoProblem-item">
                                 <span class="problem__sub-infoProblem-key">ID</span>

@@ -8,16 +8,13 @@
                 </div>
 
                 <div class="container__problem-search-action">
-                    <div class="container__problem-level">
-                        <span class="container__problem-level-text">Trạng thái</span>
-                        <i class="fa-solid fa-angle-down"></i>
-                        <ul class="container__problem-subLevel">
-                            <li class="container__problem-subLevel-item">Tất cả</li>
-                            <li class="container__problem-subLevel-item">Accepted</li>
-                            <li class="container__problem-subLevel-item">Runtime Error</li>
-                            <li class="container__problem-subLevel-item">Partial Accepted</li>
-                            <li class="container__problem-subLevel-item">Compile Error </li>
-                            <li class="container__problem-subLevel-item">Wrong Answer</li>
+                    <div class="nice-select right" tabindex="0">
+                        <span class="current">Độ khó</span>
+                        <ul class="list">
+                            <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
+                            <li data-value="easy" class="option">Dễ</li>
+                            <li data-value="medium" class="option">Trung bình</li>
+                            <li data-value="hard" class="option">Khó</li>
                         </ul>
                     </div>
 

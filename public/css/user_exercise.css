@@ -87,7 +87,7 @@
 
 .problem__main-text {
     color: #828997;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-right: 10px;
 }
 
@@ -95,10 +95,15 @@
 .problem__main-UI-list {
     min-width: 120px;
     padding: 4px 6px;
-    font-size: 1.4rem;
-    color: #636363 ;
+    font-size: 1.5rem;
     font-weight: 300;
-    border-radius: 3px;
+    position: relative;
+    color: #666;
+    border-radius: 16px;
+    border: 1px solid #666;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    cursor: pointer;
+    background-color: #fff;
 }
 
 .problem__main-btn-reset {
@@ -109,6 +114,11 @@
     color: #636363;
     margin-left: 10px;
     border-radius: 3px;
+}
+
+.problem__main-btn-reset:hover {
+    cursor: pointer;
+    background-color: #ccc;
 }
 
 .problem__main-codeBlcok {
@@ -166,12 +176,12 @@
 .problem__sub-header-icon {
     width: 24px;
     display: block;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-align: center;
 }
 
 .problem__sub-header-text {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .problem__sub-infoProblem,
@@ -189,26 +199,28 @@
 .problem__sub-infoProblem-title,
 .problem__sub-sameProblem-title {
     padding: 16px;
+    display: flex;
 }
 
 .problem__sub-infoProblem-title i,
 .problem__sub-sameProblem-title i{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     width: 24px;
     text-align: center;
 }
 
 .problem__sub-infoProblem-title span,
 .problem__sub-sameProblem-title span {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .problem__sub-infoProblem-item {
     margin: 8px 20px;
+    padding-bottom: 4px ;
     border-bottom: 1px dotted #ccc;
     display: flex;
     justify-content: space-between;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .problem__sub-sameProblem {

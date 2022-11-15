@@ -35,6 +35,7 @@
 <body>
     <?php
         require_once "app/views/Shared/Header.php";
+        // require_once "app/views/Shared/Sidebar.php";
         require_once "app/views/$view.php";
     ?>
 
