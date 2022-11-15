@@ -20,7 +20,7 @@
                             </div>
                         </div>
 
-                        <form class="problem__main-action" method="POST" action="<?php echo $this -> url('problem', 'submit', $problem -> getId())?>">
+                        <form id="form" class="problem__main-action" method="POST" action="<?php echo $this -> url('problem', 'submit', $problem -> getId())?>">
                             <div class="problem__main-selector">
                                 <div class="problem__main-selector-language">
                                     <span class="problem__main-text">Ngôn ngữ: </span>
@@ -44,9 +44,7 @@
                                 </div>
                             </div>
                             <div class="problem__main-codeBlcok">
-                                <!-- <pre id="codeBlock">
-                                </pre> -->
-                                <textarea name="code"></textarea>
+                                <div id="codeBlock"></div>
                             </div>
 
                             <div class="problem__main-submit">
@@ -133,8 +131,9 @@
     </div>
 </div>
 
-<script>
-    <?php
-        echo  "var require = { paths: { 'vs': '".ROOT."/public/js/node_modules/monaco-editor/min/vs' } }";
-    ?>
-</script>
+<script src="<?php echo ROOT.'/public/js/node_modules/jquery/dist/jquery.min.js'?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/1.4.1/codeflask.min.js" integrity="sha512-Bf/Qkbt7wQQq5+DSLtN5E/IoNnxmdCw5D8TibX466Vcr9JZVw45dENcw5Xcty1NZByDJ1nm7kWJq05ujIC5DHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-c.min.js" integrity="sha512-EWIJI7uQnA8ClViH2dvhYsNA7PHGSwSg03FAfulqpsFiTPHfhdQIvhkg/l3YpuXOXRF2Dk0NYKIl5zemrl1fmA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-cpp.min.js" integrity="sha512-/kakiUcgosfrW14dYIe0cMjXoK6PN67r96Dz2zft/Rlm6TcgdCJjb6ZD/jpobHzduAs8NdSeMQHda8iJGkjdow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-java.min.js" integrity="sha512-BEknrL2CnuVpqnSTwO4a9y9uW5bQ/nabkJeahZ5seRXvmzAMq59Ja9OxZe3lVGrnKEcVlamL4nUBl03wzPM/nA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

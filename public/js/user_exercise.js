@@ -1,87 +1,22 @@
-var codeBlock = document.getElementById('codeBlock');
-var codeContent = $.trim($('#codeBlock').text());
-$('#codeBlock').html('');
-$("#codeBlock").height(400);
-
-// create
-var editorCodeBlock = monaco.editor.create(codeBlock, {
-    value: codeContent,
-    language: '',
-    theme: 'vs',
-    lineNumber: 'on',
-    glyphMargin: false,
-    vertical: 'auto',
-    horizontal: 'auto',
-    verticalScrollbarSize: 10,
-    horizontalScrollbarSize: 10,
-    scrollBeyondLastLine: false,
-    readOnly: false,
-    automaticLayout: true,
-    minimap: {
-        enabled: false
-    },
-    lineHeight: 19,
-
+let flask = new CodeFlask('#codeBlock', 
+{ 
+    enableAutocorrect: true,
+    lineNumbers: true 
 });
+const languageSelector = document.getElementById('language_Selector');
+const form = document.getElementById('form');
 
-//change theme
-var uiSelector = document.querySelector("#ui_Selector");
-uiSelector.addEventListener('change', (event) => {
-    monaco.editor.setTheme(event.target.value);
+form.addEventListener('formdata', e => {
+    const formData = e.formData;
+    formData.set('code', flask.getCode());
 });
-
-//getInput
-var input = "";
-codeBlock.addEventListener('input', (event) => {
-    input = event.target.value;
-});
-
-//change language
-var languageSelector = document.querySelector("#language_Selector");
-languageSelector.addEventListener('change', (event) => {
-    codeBlock.textContent = "";
-    var editorCodeBlock = monaco.editor.create(codeBlock, {
-        value: input,
-        language: event.target.value,
-        theme: uiSelector.value,
-        lineNumber: 'on',
-        glyphMargin: false,
-        vertical: 'auto',
-        horizontal: 'auto',
-        verticalScrollbarSize: 10,
-        horizontalScrollbarSize: 10,
-        scrollBeyondLastLine: false,
-        readOnly: false,
-        automaticLayout: true,
-        minimap: {
-            enabled: false
-        },
-        lineHeight: 19,
+languageSelector.addEventListener('change', e => {
+    const code = flask.getCode();
+    flask = new CodeFlask('#codeBlock', 
+    { 
+        language: e.target.value,
+        lineNumbers: true 
     });
-});
-
-
-//reset code block
-var btnReset = document.querySelector("#btn-reset");
-btnReset.addEventListener('click', (event) => {
-    var oldLanguage = languageSelector.value;
-    codeBlock.textContent = "";
-    var editorCodeBlock = monaco.editor.create(codeBlock, {
-        value: codeContent,
-        language: oldLanguage,
-        theme: uiSelector.value,
-        lineNumber: 'on',
-        glyphMargin: false,
-        vertical: 'auto',
-        horizontal: 'auto',
-        verticalScrollbarSize: 10,
-        horizontalScrollbarSize: 10,
-        scrollBeyondLastLine: false,
-        readOnly: false,
-        automaticLayout: true,
-        minimap: {
-            enabled: false
-        },
-        lineHeight: 19,
-    });
+    flask.addLanguage(e.target.value, Prism.languages[e.target.value]);
+    flask.updateCode(code);
 });

@@ -234,3 +234,13 @@
 .problem__sub-sameProblem:hover {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.codeflask__lines {
+    background-color: #FFF;
+}
+.codeflask {
+    width: 100% !important;
+    height: 500px !important;
+    border-radius: 3px;
+    position: relative !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
