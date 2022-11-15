@@ -38,13 +38,10 @@
         ],
         'Problem/index' => [
             'css' => [
-                'user_exercise'
+                'https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.2.0/codeflask.min.css',
+                'user_exercise',
             ],
             'js' => [
-                'node_modules/jquery/dist/jquery.min',
-                'node_modules/monaco-editor/min/vs/loader',
-                'node_modules/monaco-editor/min/vs/editor/editor.main.nls',
-                'node_modules/monaco-editor/min/vs/editor/editor.main',
                 'user_exercise'
             ]
         ],
