@@ -210,19 +210,19 @@
 }
 
 .container__problem-form-input {
-    padding: 8px 12px;
+    padding: 12px 12px;
     color: #666;
-    border-radius: 16px;
+    border-radius: 20px;
     border: 1px solid #666;
     box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
 }
 
 .container__problem-form-icon {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 16px;
+    top: 14px;
     color: #666;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 /* User Item _ Container Body*/
@@ -309,6 +309,7 @@
     text-decoration: none;
     transition: .5s;
     border: 1px solid #4CC790;
+    font-size: 1.2rem;
 }
 .problem__do:hover{
     background-color: white;
@@ -321,7 +322,7 @@
 
 .circular-chart {
     display: block;
-    margin: 15px auto 0 auto;
+    margin: 0 auto;
     max-width: 80%;
     max-height: 250px;
 }

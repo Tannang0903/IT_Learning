@@ -4,15 +4,11 @@
             'css' => [
                 'base',
                 'grid',
-                'header'
+                'header',
+                // 'sidebar',
             ],
             'font' => [
                 'fontawesome-free-6.1.2-web/css/all.css'
-            ]
-        ],
-        'Home/index' => [
-            'css' => [
-                'home'
             ]
         ],
         'Auth/login' => [
@@ -36,6 +32,16 @@
                 'login'
             ]
         ],
+        'Home/index' => [
+            'css' => [
+                'home',
+                'selector'
+            ],
+            'js' => [
+                'https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous',
+                'selector'
+            ]
+        ],
         'Problem/index' => [
             'css' => [
                 'https://cdnjs.cloudflare.com/ajax/libs/CodeFlask.js/0.2.0/codeflask.min.css',
@@ -47,7 +53,12 @@
         ],
         'Problem/list' => [
             'css' => [
-                'user_problem'
+                'user_problem',
+                'selector'
+            ],
+            'js' => [
+                'https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous',
+                'selector'
             ]
         ], 
         'Profile/index' => [
@@ -65,8 +76,13 @@
         'Admin/Problem/index' => [
             'css' => [
                 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous',
-                'admin_problem'
+                'admin_problem',
+                'selector'
             ],
+            'js' => [
+                'https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous',
+                'selector'
+            ]
         ],
         'Admin/Problem/insert' => [
             'css' => [
@@ -80,8 +96,13 @@
         ],
         'Admin/Problem/summitted' => [
             'css' => [
-                'admin_problem-summitted'   
+                'admin_problem',
+                'selector' 
             ],
+            'js' => [
+                'https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous',
+                'selector'
+            ]
         ],
     ];
 ?>

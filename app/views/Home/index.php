@@ -42,16 +42,17 @@
         <div class="home_main">
             <div class="container__problem-search">
                 <div class="container__problem-search-action">
-                    <div class="container__problem-level">
-                        <span class="container__problem-level-text">Độ khó</span>
-                        <i class="fa-solid fa-angle-down"></i>
-                        <ul class="container__problem-subLevel">
-                            <li class="container__problem-subLevel-item">Tất cả</li>
-                            <li class="container__problem-subLevel-item">Dễ</li>
-                            <li class="container__problem-subLevel-item">Trung bình</li>
-                            <li class="container__problem-subLevel-item">Khó</li>
+                    <div class="nice-select left" tabindex="0">
+                        <span class="current">Độ khó</span>
+                        <ul class="list">
+                            <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
+                            <li data-value="easy" class="option">Dễ</li>
+                            <li data-value="medium" class="option">Trung bình</li>
+                            <li data-value="hard" class="option">Khó</li>
                         </ul>
                     </div>
+
+
                     <form action="" class="container__problem-form-search">
                         <input type="text" class="container__problem-form-input" placeholder="Tìm kiếm">
                         <i class="container__problem-form-icon fa-solid fa-magnifying-glass"></i>
