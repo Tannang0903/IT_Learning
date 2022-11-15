@@ -6,19 +6,18 @@
                     <div class="container__problem-search-nonAction">
                         <span class="container__problem-search-list">Danh sách bài tập</span>
                         <div class="btn action_product">
-                            Thêm sản phẩm
+                            Thêm bài tập
                         </div>
                     </div>
 
                     <div class="container__problem-search-action">
-                        <div class="container__problem-level">
-                            <span class="container__problem-level-text">Trạng thái</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                            <ul class="container__problem-subLevel">
-                                <li class="container__problem-subLevel-item">Tất cả</li>
-                                <li class="container__problem-subLevel-item">Dễ</li>
-                                <li class="container__problem-subLevel-item">Trung bình</li>
-                                <li class="container__problem-subLevel-item">Khó</li>
+                        <div class="nice-select right" tabindex="0">
+                            <span class="current">Độ khó</span>
+                            <ul class="list">
+                                <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
+                                <li data-value="easy" class="option">Dễ</li>
+                                <li data-value="medium" class="option">Trung bình</li>
+                                <li data-value="hard" class="option">Khó</li>
                             </ul>
                         </div>
 

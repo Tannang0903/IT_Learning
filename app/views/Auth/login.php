@@ -2,13 +2,13 @@
             <div class="forms">
                 <div class="login-box">
                     <h2 class="title">Login</h2>
-                    <form method="POST">
+                    <form method="POST" autocomplete="off">
                         <div class="user-box">
-                            <input type="text" name="username" required oninput="removeError()">
+                            <input type="text" name="username" required oninput="removeError()" autocomplete="off">
                             <label>Username</label>
                         </div>
                         <div class="user-box">
-                            <input type="password" name="password" required oninput="removeError()">
+                            <input type="password" name="password" required oninput="removeError()" autocomplete="new-password">
                             <label>Password</label>
                         </div>
                         <?php
@@ -42,10 +42,3 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function removeError() {
-            var error = document.querySelector('.errorInfo');
-            error.innerText = '';
-        }
-    </script>

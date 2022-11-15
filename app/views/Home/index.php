@@ -6,12 +6,10 @@
                         <section class="wrap-block-user home-section">
                                 <div class="container_header">
                                     <div class="wrap-main-user-profile row">
-                                        <div class="col-xs-12 col-md-4">
+                                        <div class="col c-8">
                                             <div class="main-user-info">
                                                 <div class="header-main-user-info">
                                                     <div class="user-avatar">
-                                                        <!-- <img alt="Cấp độ 6" class="level-avatar"
-                                                                src="/a.jpg"> -->
                                                         <img class="img-user" src="' . $this->image('default_avatar.png') . '">
                                                     </div>
                                                     <div class="content-main-user-info">
@@ -21,45 +19,16 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <div class="user-progress-block">
-                                                    <span class="user-exp">917.00 EXP</span>
-                                                    <span class="user-next-level">
-                                                    </span>
-                                                    <div class="user-progress-bar">
-                                                        <span class="current-progress" style="width: 29.00%;"></span>
-                                                    </div>
-                                                    <div class="level-progress">
-                                                        <span class="current-level">Cấp độ 6</span>
-                                                        <span class="current-progress-level">116/400</span>
-                                                        <span class="next-level">Cấp độ 7</span>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-md-8">
+                                        <div class="col c-4">
                                             <div class="wrap-detail-user-progress">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-4 detail-progress-item">
-                                                        <h4>Luyện tập</h4>
-                                                        <div class="detail-progress-content">
-                                                            <span class="result">0/1625</span>
-                                                        </div>
-                                                        <div class="item-progress-bar">
-                                                            <span class="current-progress" style="width:0%;"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12 col-sm-4 detail-progress-item">
-                                                        <h4>Thứ hạng tốt nhất</h4>
-                                                        <div class="detail-progress-content">
-                                                            <span class="result">0/0<span class="result-des">cuộc thi</span></span>
-                                                        </div>
-                                                        <div class="item-progress-bar">
-                                                            <span class="current-progress" style="width:0%;"></span>
-                                                        </div>
-                                                    </div>
+                                                <h4 class="textExercise">Luyện tập</h4>
+                                                <div class="detail-progress-content">
+                                                    <span class="result">0/1625</span>
                                                 </div>
-                                                <div class="reward-block">
-                                                    <h4 class="title-reward-block"><a href="/user-badges/4770603" style="color:black;text-decoration:none">Thành tích của bạn<i class="cl-icon-angle-right"></i></a></h4>
+                                                <div class="item-progress-bar">
+                                                    <span class="current-progress"></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,16 +42,17 @@
         <div class="home_main">
             <div class="container__problem-search">
                 <div class="container__problem-search-action">
-                    <div class="container__problem-level">
-                        <span class="container__problem-level-text">Độ khó</span>
-                        <i class="fa-solid fa-angle-down"></i>
-                        <ul class="container__problem-subLevel">
-                            <li class="container__problem-subLevel-item">Tất cả</li>
-                            <li class="container__problem-subLevel-item">Dễ</li>
-                            <li class="container__problem-subLevel-item">Trung bình</li>
-                            <li class="container__problem-subLevel-item">Khó</li>
+                    <div class="nice-select left" tabindex="0">
+                        <span class="current">Độ khó</span>
+                        <ul class="list">
+                            <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
+                            <li data-value="easy" class="option">Dễ</li>
+                            <li data-value="medium" class="option">Trung bình</li>
+                            <li data-value="hard" class="option">Khó</li>
                         </ul>
                     </div>
+
+
                     <form action="" class="container__problem-form-search">
                         <input type="text" class="container__problem-form-input" placeholder="Tìm kiếm">
                         <i class="container__problem-form-icon fa-solid fa-magnifying-glass"></i>
@@ -94,33 +64,31 @@
                     <?php
                     foreach ($problems as $problem) {
                         echo '
-                                <div class="col c-3">
-                                    <div class="container__user-item">
-                                        <div class="container__user-item-task">
-                                            <a href="'.$this -> url('problem', 'index', $problem -> getId()).'" class="container__user-item-nameEx">' . $problem->getName() . '</a>
-                                            <span class="container__user-item-level-easy">' . $problem->getStrLevel() . '</span>
+                                <div class="col c-6">
+                                    <div class="problem__card">
+                                        <div class="col c-9 problem__info">
+                                            <div class="col c-4 problem__user">
+                                                <img class="problem__user_image" src="' . $problem -> getAuthor() -> getAvatar() . '" />
+                                                <strong class="problem__user_name">' . $problem->getAuthor()->getUsername() . '</strong>
+                                            </div>
+                                            <div class="col c-8 problem__detail">
+                                                <a href="'.$this -> url('problem', 'index', $problem -> getId()).'" class="problem__detail_heading">' . $problem->getName() . '</a>
+                                                <p class="problem__detail_level">Độ khó: ' . $problem->getStrLevel() . '</p>
+                                                <p class="problem__detail_description">' . $problem-> getDescription(). '</p>
+                                            </div>
                                         </div>
-                                        <div class="containerr__user-item-avatar">
-                                            <img src="' . $problem -> getAuthor() -> getAvatar() . '" alt="" class="containerr__user-item-avatar-rim">
-                                        </div>
-                                        <a href="" class="containerr__user-item-owner">' . $problem->getAuthor()->getUsername() . '</a>
-            
-                                        <div class="container__user-item-info">
-                                            <div class="container__user-item-content">
-                                                <i class="container__user-item-icon fa-solid fa-user-group"></i>
-                                                <span class="containe__user-item-text">' . $problem->getSuccessSubmit() . '/' . $problem->getTotalSubmit() . '</span>
+                                        <div class="col c-3 problem__statistic">
+                                            <div class="single-chart">
+                                                <svg viewBox="0 0 36 36" class="circular-chart green">
+                                                    <path class="circle-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                    <text x="19.7" y="21.5" class="percentage">90%</text>
+                                                </svg>
                                             </div>
-                                            <div class="container__user-item-content">
-                                                <i class="container__user-item-icon fa-regular fa-comment-dots"></i>
-                                                <span class="container__user-item-text">80</span>
-                                            </div>
-                                            <div class="container__user-item-content">
-                                                <i class="container__user-item-icon fa-regular fa-heart"></i>
-                                                <span class="container__user-item-text">100</span>
-                                            </div>
+                                            <a class="problem__do" href="">Làm ngay</a>
                                         </div>
                                     </div>
-                                </div>                            
+                                </div>
                             ';
                     }
                     ?>

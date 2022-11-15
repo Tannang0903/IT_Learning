@@ -35,13 +35,19 @@
 <body>
     <?php
         require_once "app/views/Shared/Header.php";
+        // require_once "app/views/Shared/Sidebar.php";
         require_once "app/views/$view.php";
     ?>
 
     <?php
         if (isset($config['static_files'][$view]['js'])) {
             foreach ($config['static_files'][$view]['js'] as $js) {
-                echo "<script src=\"".ROOT."/public/js/$js.js\"></script>";
+                if (strstr($js, 'http') != false) {
+                    echo "<script src=\"$js\"></script>";
+                }
+                else {
+                    echo "<script src=\"".ROOT."/public/js/$js.js\"></script>";
+                }
             }
         }
     ?>
