@@ -11,21 +11,11 @@ btnAdd.onclick = function () {
                     <div class="row">
                         <div class="form-input col c-6">
                             <label for="input" class="form-label">Đầu vào</label>
-                            <input id="input" name="input" type="text" class="form-control">
+                            <input id="input" name="input[]" type="text" class="form-control">
                         </div>
                         <div class="form-input col c-6">
                             <label for="output" class="form-label">Đầu ra</label>
-                            <input id="output" name="output" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-limit col c-6">
-                            <label for="time" class="form-label">Giới hạn thời gian</label>
-                            <input id="time" name="time" type="text" class="form-control">
-                        </div>
-                        <div class="form-limit col c-6">
-                            <label for="data" class="form-label">Giới hạn bộ nhớ</label>
-                            <input id="data" name="data" type="text" class="form-control">
+                            <input id="output" name="output[]" type="text" class="form-control">
                         </div>
                     </div>
                 </div>`

@@ -4,6 +4,9 @@
         public function getByName($name) {
             return $this -> map($this -> executeReader("SELECT * FROM ROLES WHERE NAME = '$name'"));
         }
+        public function getById($id) {
+            return $this -> map($this -> executeReader("SELECT * FROM ROLES WHERE ROLE_ID = '$id'"));
+        }
         public function map($entity) {
             if ($entity == null) return null;
             $role = new Role();

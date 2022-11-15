@@ -78,7 +78,28 @@
                     foreach ($undoneProblems as $problem) {
                         echo '
                             <div class="user__statistic-problem">
-                                <a href="">'.$problem -> getName().'</a>
+                                <a href="'.$this -> url('problem', 'index', $problem -> getId()).'">'.$problem -> getName().'</a>
+                            </div>
+                        ';
+                    }
+                ?>
+
+            </div>
+        </div>
+
+        <div class="row user__statistic">
+            <h3 class="col col-3 user__title">
+                <i class="fa-solid fa-circle-check"></i>
+                Danh sách bài chưa vượt qua
+            </h3>
+        </div>
+        <div class="row user__statistic-block">
+            <div class="col col-12 user__statistic-list-problem">
+                <?php
+                    foreach ($doneProblems as $problem) {
+                        echo '
+                            <div class="user__statistic-problem">
+                                <a href="'.$this -> url('problem', 'index', $problem -> getId()).'">'.$problem -> getName().'</a>
                             </div>
                         ';
                     }

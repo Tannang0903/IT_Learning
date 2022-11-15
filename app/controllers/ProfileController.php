@@ -14,6 +14,7 @@
         public function index() {
             $data['me'] = $this -> userBO -> getById($this -> getClaims('ID'));
             $data['undoneProblems'] = $this -> problemBO -> getUndoneProblemOfUser($this -> getClaims('ID'));
+            $data['doneProblems'] = $this -> problemBO -> getDoneProblemOfUser($this -> getClaims('ID'));
             $data['submitCount'] = $this -> userBO -> getSubmitCountOfUser($this -> getClaims('ID'));
             $data['successSubmitCount'] = $this -> userBO -> getSuccessSubmitCountOfUser($this -> getClaims('ID'));
             $this -> render('Profile/index', 'Thông tin cá nhân', $data);

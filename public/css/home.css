@@ -477,6 +477,10 @@ p {
 
 .title_rank {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .title_detail {
@@ -486,8 +490,8 @@ p {
     text-align: center;
 }
 
-.mb--80 {
-    margin-bottom: 80px;
+.mb--50 {
+    margin-bottom: 50px;
 }
 
 .font-size--16 {

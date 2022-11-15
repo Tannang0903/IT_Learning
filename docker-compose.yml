@@ -28,4 +28,4 @@ services:
     ports:
       - 33306:3306
     restart: always
-    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8_vietnamese_ci']
+    # command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8_vietnamese_ci']

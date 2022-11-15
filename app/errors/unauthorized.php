@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bạn không có quyền để truy cập tài nguyên này</title>
+    <link rel="stylesheet" href="<?php echo ROOT?>/public/fonts/fontawesome-free-6.1.2-web/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
@@ -59,7 +60,7 @@
         Bạn không có quyền để truy cập tài nguyên này. 
     </p>
     <a class="heading__direction" href="<?php echo ROOT?>/index.php/home">
-        <i class="fa-solid fa-arrow-left"></i>
+    <i class="fa-solid fa-arrow-left"></i>
         <span>Quay về trang chủ</span>
     </a>
 </body>

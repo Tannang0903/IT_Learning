@@ -15,6 +15,14 @@
         public function getByEmail($email) {
             return $this -> map($this -> executeReader("SELECT * FROM USERS WHERE EMAIL = '$email'"));
         }
+        public function getUserRank() {
+            $result = $this -> executeReaderArray("SELECT * FROM USERS ORDER BY SCORE DESC LIMIT 10");
+            $data = [];
+            foreach ($result as $entity) {
+                array_push($data, $this -> map($entity));
+            }
+            return $data;
+        }
         public function login($username, $password) {
             $entity = $this -> executeReader("SELECT * FROM USERS WHERE (USERNAME = '$username' OR EMAIL = '$username') AND PASSWORD = '$password'");
             return $this -> map($entity);

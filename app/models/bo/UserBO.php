@@ -11,7 +11,7 @@
             require_once 'app/core/Validate/ValidatorResult.php';
             $this -> userDAO = new UserDAO();
             $this -> roleDAO = new RoleDAO();
-            $this -> submissionDAO = new SubmissionDAO();
+            $this -> submissionDAO = new submissionDAO();
         }
 
         public function getById($id) {
@@ -141,6 +141,10 @@
             if (!empty($errors) && count($errors) > 0) return $errors;
             $this -> userDAO -> update($user);
             return true;
+        }
+
+        public function getUserRank() {
+            return $this -> userDAO -> getUserRank();
         }
 
         public function getSubmitCountOfUser($userId) {

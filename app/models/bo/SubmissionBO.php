@@ -39,7 +39,7 @@
                         if ($result -> getOutput() != $testcase -> getOutput()) {
                             $submissionDetail -> setState(SubmitState::WrongAnswer);
                         }else{
-                            if ($result -> getTime() < $problem -> getTimeLimit()) {
+                            if ($result -> getTime() > $problem -> getTimeLimit()) {
                                 $submissionDetail -> setState(SubmitState::TimeLimit);
                             }else{
                                 $submissionDetail -> setState(SubmitState::Success); 
@@ -56,12 +56,19 @@
                     }
                 }
                 $result = $this -> submissionDAO -> submit($submission, $details);
+                // if (!$this -> problemBO -> isSolved($problem -> getId(), $userId)) {
+                    
+                // }
                 if ($result) {
                     return $submission;
                 }else{
                     return null;
                 }
             }
+        }
+
+        public function getSubmitCountOfUser($userId, $state = null) {
+            return $this -> submissionDAO -> getSubmitCountOfUser($userId, $state);
         }
     }
 ?>

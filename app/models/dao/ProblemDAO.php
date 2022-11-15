@@ -1,6 +1,9 @@
 <?php
     require_once 'app/models/entity/Problem.php';
     class ProblemDAO extends BaseDAO {
+        public function count() {
+            return $this -> executeScalar('SELECT COUNT(*) FROM PROBLEMS');
+        }
         public function fetchAll() {
             $result = $this -> executeReaderArray('SELECT * FROM PROBLEMS');
             $data = [];
@@ -37,11 +40,23 @@
             return $this -> map($this -> executeReader("SELECT * FROM PROBLEMS INNER JOIN USERS ON PROBLEMS.AUTHORID = USERS.USER_ID WHERE PROBLEM_ID = '$id'"));
         }
 
-        public function insert($problem) {
-            return $this -> executeNonQuery("
-                INSERT INTO PROBLEMS(ID, NAME, DESCRIPTION, CREATEDAT, UPDATEDAT, AUTHORID)
-                VALUES('$problem -> getId()', '$problem -> getName()', '$problem -> getDescription()', '$problem -> getCreated()', '$problem -> getUpdatedAt()', '$problem -> getAuthorID()')
+        public function insert($problem, $testcases) {
+            echo "
+            INSERT INTO PROBLEMS(PROBLEM_ID, NAME, DESCRIPTION, SCORE, TIMELIMIT, LEVEL, CREATEDAT, AUTHORID)
+            VALUES('".$problem -> getId()."', '".$problem -> getName()."', '".$problem -> getDescription()."', ".$problem -> getScore().", ".$problem -> getTimeLimit().", ".$problem -> getLevel().", '".date('Y-m-d H:i:s')."', '".$problem -> getAuthorID()."')
+        ";
+            $result = $this -> executeNonQuery("
+                INSERT INTO PROBLEMS(PROBLEM_ID, NAME, DESCRIPTION, SCORE, TIMELIMIT, LEVEL, CREATEDAT, AUTHORID)
+                VALUES('".$problem -> getId()."', '".$problem -> getName()."', '".$problem -> getDescription()."', ".$problem -> getScore().", ".$problem -> getTimeLimit().", ".$problem -> getLevel().", '".date('Y-m-d H:i:s')."', '".$problem -> getAuthorID()."')
             ");
+            if (!$result) return false;
+            foreach ($testcases as $testcase) {
+                $this -> executeNonQuery("
+                    INSERT INTO TESTCASES(TESTCASE_ID, INPUT, OUTPUT, CREATEDAT, PROBLEMID)
+                    VALUES('".$testcase -> getId()."', '".$testcase -> getInput()."', '".$testcase -> getOutput()."', '".date('Y-m-d H:i:s')."', '".$problem -> getId()."');                        
+                ");
+            }
+            return true;
         }
 
         public function remove($id) {
@@ -65,8 +80,21 @@
             return $data;
         }
 
-        public function getUndoneProblem($userId) {
-            $result = $this -> executeReaderArray("CALL SP_GetUnDoneProblems('$userId')");
+        public function getSubmitProblemByState($userId, $state) {
+            if ($state == true) {
+                $result = $this -> executeReaderArray("
+                    SELECT DISTINCT TESTCASES.PROBLEMID AS 'PROBLEM_ID' FROM USERS
+                    INNER JOIN SUBMISSIONS
+                    ON USERS.USER_ID = SUBMISSIONS.USERID
+                    INNER JOIN SUBMITDETAILS
+                    ON SUBMITDETAILS.SUBMITID = SUBMISSIONS.SUBMIT_ID
+                    INNER JOIN TESTCASES
+                    ON TESTCASES.TESTCASE_ID = SUBMITDETAILS.TESTCASESID
+                    WHERE SUBMISSIONS.STATE = 1 AND USERS.USER_ID = '$userId'
+                ");
+            }else{
+                $result = $this -> executeReaderArray("CALL SP_GetUnDoneProblems('$userId')");
+            }
             $data = [];
             foreach ($result as $row) {
                 array_push($data, $row['PROBLEM_ID']);

@@ -41,7 +41,11 @@
     <?php
         if (isset($config['static_files'][$view]['js'])) {
             foreach ($config['static_files'][$view]['js'] as $js) {
-                echo "<script src=\"".ROOT."/public/js/$js.js\"></script>";
+                if (strstr($js, 'http') != false) {
+                    echo "<script src=\"$js\"></script>";
+                }else{
+                    echo "<script src=\"".ROOT."/public/js/$js.js\"></script>";
+                }
             }
         }
     ?>

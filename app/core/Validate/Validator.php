@@ -10,22 +10,40 @@
         }
 
         public function required() {
-            if (empty(trim($this -> value))) {
-                $this -> messages['required'] = $this -> name." không được để trống";
+            if (is_array($this -> value)) {
+                if (empty($this -> value) || count($this -> value) == 0) {
+                    $this -> messages['required'] = $this -> name." không được để trống";
+                }
+            }else{
+                if (empty(trim($this -> value))) {
+                    $this -> messages['required'] = $this -> name." không được để trống";
+                }
             }
             return $this;
         }
 
         public function maxLength($max) {
-            if (empty(trim($this -> value)) || strlen($this -> value) > $max) {
-                $this -> messages['maxLength'] = "Độ dài tối thiểu của ".$this -> name." không được vượt quá $max";
+            if (is_array($this -> value)) {
+                if (count($this -> value) > $max) {
+                    $this -> messages['maxLength'] = "Độ dài tối thiểu của ".$this -> name." không được vượt quá $max";
+                }
+            }else{
+                if (empty(trim($this -> value)) || strlen($this -> value) > $max) {
+                    $this -> messages['maxLength'] = "Độ dài tối thiểu của ".$this -> name." không được vượt quá $max";
+                }
             }
             return $this;
         }
 
         public function minLength($min) {
-            if (empty(trim($this -> value)) || strlen($this -> value) < $min) {
-                $this -> messages['minLength'] = "Độ dài tối thiểu của ".$this -> name." không được bé hơn $min";
+            if (is_array($this -> value)) {
+                if (count($this -> value) < $min) {
+                    $this -> messages['minLength'] = "Độ dài tối thiểu của ".$this -> name." không được bé hơn $min";
+                }
+            }else{
+                if (empty(trim($this -> value)) || strlen($this -> value) < $min) {
+                    $this -> messages['minLength'] = "Độ dài tối thiểu của ".$this -> name." không được bé hơn $min";
+                }
             }
             return $this;
         }

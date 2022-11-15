@@ -1,16 +1,22 @@
 <?php
     class ProblemBO {
         private $problemDAO;
-        private $userDAO;
+        private $userBO;
         public function __construct() {
             require_once 'app/models/dao/ProblemDAO.php';
-            require_once 'app/models/dao/UserDAO.php';
-            $this -> userDAO = new UserDAO();
+            require_once 'app/models/bo/UserBO.php';
+            require_once 'app/core/Validate/Validator.php';
+            $this -> userBO = new UserBO();
             $this -> problemDAO = new ProblemDAO();
         }
+        public function count() {
+            return $this -> problemDAO -> count();
+        }
+
         public function getAll() {
             return $this -> problemDAO -> fetchAll();
         }
+
         public function getAllWithAuthor() {
             $problems = $this -> problemDAO -> getProblemsWithAuthor();
             foreach ($this -> problemDAO -> getSubmitCountOfProblem(true) as $detail) {
@@ -46,12 +52,22 @@
             }
         }
 
-        public function insert($problem) {
+        public function insert($problem, $testcases) {
             $entity = $this -> problemDAO -> getById($problem -> getId());
             if ($entity != null) {
                 return false;
             }else {
-                $this -> problemDAO -> insert($problem);
+                $validateName = new Validator($problem -> getName(), 'Name');
+                $validateDescription = new Validator($problem -> getDescription(), 'Description');
+                $validateId = new Validator($problem -> getId(), 'ID');
+                $validateTestcase = new Validator($testcases, 'Testcase');
+                $validateName = $validateName -> required() -> minLength(6) -> validate();
+                $validateDescription = $validateDescription -> required() -> minLength(15) -> validate();
+                $validateId = $validateId -> required() -> minLength(6) -> validate();
+                $validateTestcase = $validateTestcase -> required() -> validate();
+                if ($validateId -> isSuccess() && $validateDescription -> isSuccess() && $validateName -> isSuccess() && $validateTestcase -> isSuccess()) {
+                    $this -> problemDAO -> insert($problem, $testcases);
+                }
                 return true;
             }
         }
@@ -73,16 +89,30 @@
         public function getAuthorOfProblem($id) {
             $problem = $this -> problemDAO -> getById($id);
             if ($problem == null) return null;
-            return $this -> userDAO -> getById($problem -> getAuthorId());
+            return $this -> userBO -> getById($problem -> getAuthorId());
         }
 
         public function getUndoneProblemOfUser($userId) {
             $problems = [];
-            foreach ($this -> problemDAO -> getUndoneProblem($userId) as $problemId) {
+            foreach ($this -> problemDAO -> getSubmitProblemByState($userId, false) as $problemId) {
+                array_push($problems, $this -> problemDAO -> getById($problemId));
+            }
+            return $problems;
+        }
+
+        public function getDoneProblemOfUser($userId) {
+            $problems = [];
+            foreach ($this -> problemDAO -> getSubmitProblemByState($userId, true) as $problemId) {
                 array_push($problems, $this -> problemDAO -> getById($problemId));
             }
             return $problems;
         }
         
+        public function isSolved($problemId, $userId) {
+            foreach ($this -> problemDAO -> getSubmitProblemByState($userId, true) as $solvedProblemId) {
+                if ($problemId == $solvedProblemId) return true;
+            }
+            return false;
+        }
     }
 ?>

@@ -17,7 +17,7 @@
                                                     <div class="content-main-user-info">
                                                         <h3 class="user-name">' . $user['Username'] . '</h3>
                                                         <p class="main-user-des">
-                                                            Công nghệ thông tin - Đại học Bách khoa - Đại học Đà Nẵng
+                                                            '.$user['School'].'
                                                         </p>
                                                     </div>
                                                 </div>
@@ -26,7 +26,7 @@
                                                     <span class="user-next-level">
                                                     </span>
                                                     <div class="user-progress-bar">
-                                                        <span class="current-progress" style="width: 29.00%;"></span>
+                                                        <span class="current-progress" style="width: '.($problem_solved * 100) / $problem_count.'%;"></span>
                                                     </div>
                                                     <div class="level-progress">
                                                         <span class="current-level">Cấp độ 6</span>
@@ -42,10 +42,10 @@
                                                     <div class="col-xs-12 col-sm-4 detail-progress-item">
                                                         <h4>Luyện tập</h4>
                                                         <div class="detail-progress-content">
-                                                            <span class="result">0/1625</span>
+                                                            <span class="result">'.$problem_solved.'/'.$problem_count.'</span>
                                                         </div>
                                                         <div class="item-progress-bar">
-                                                            <span class="current-progress" style="width:0%;"></span>
+                                                            <span class="current-progress" style="width: '.($problem_solved * 100) / $problem_count.'%;"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-xs-12 col-sm-4 detail-progress-item">
@@ -134,7 +134,9 @@
                         <h2 class="title_detail">
                             Bảng xếp hạng
                         </h2>
-                        <div class="font-size--16 mb--80">
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_d6ZJ8R.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                        <div class="font-size--16 mb--50">
                             Bảng xếp hạng học viên theo top Luyencode
                         </div>
                     </div>
@@ -143,19 +145,27 @@
                             <div class="detial_user">
                                 <div class="detail_user_component">
                                     <div class="component" style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch">
-                                        <div class="detail_user_info">
-                                            <div class="w--40 font-size--20 text-align--right mr--14">1</div>
-                                            <div class="display--flex justify-content--spaceBetween w--full align-items--center">
-                                                <div style="flex: 2 1 0%;">
-                                                    <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
-                                                        <img src="./a.png" alt="">
-                                                    </span>
-                                                    <span class="font-size--14"> Huyền Bùi</span>
-                                                </div>
-                                                <div class="font-size--14" style="flex: 1.5 1 0%">Bài tập</div>
-                                                <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">1886</div>
-                                            </div>
-                                        </div>
+                                        <?php
+                                            $count = 1;
+                                            foreach ($rank as $userInfo) {
+                                                echo '
+                                                    <div class="detail_user_info">
+                                                        <div class="w--40 font-size--20 text-align--right mr--14">'.$count.'</div>
+                                                        <div class="display--flex justify-content--spaceBetween w--full align-items--center">
+                                                            <div style="flex: 2 1 0%;">
+                                                                <span class="ant-avatar ant-avatar-circle ant-avatar-image ml--12 mr--16" style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;">
+                                                                    <img src="'.$this->image('default_avatar.png').'" alt="" style="object-fit: cover; width: 100%; height: 100%">
+                                                                </span>
+                                                                <span class="font-size--14">'.$userInfo -> getUsername().'</span>
+                                                            </div>
+                                                            <div class="font-size--14" style="flex: 1.5 1 0%">'.$userInfo -> getEmail().'</div>
+                                                            <div class="font-size--18 text-align--right color--functional-success-500" style="flex: 1 1 0%;">'.$userInfo -> getScore().'</div>
+                                                        </div>
+                                                    </div>
+                                                ';
+                                                $count++;
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
