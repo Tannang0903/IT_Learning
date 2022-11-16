@@ -25,11 +25,11 @@
         public function maxLength($max) {
             if (is_array($this -> value)) {
                 if (count($this -> value) > $max) {
-                    $this -> messages['maxLength'] = "Độ dài tối thiểu của ".$this -> name." không được vượt quá $max";
+                    $this -> messages['maxLength'] = "Độ dài tối đa của ".$this -> name." không được vượt quá $max";
                 }
             }else{
                 if (empty(trim($this -> value)) || strlen($this -> value) > $max) {
-                    $this -> messages['maxLength'] = "Độ dài tối thiểu của ".$this -> name." không được vượt quá $max";
+                    $this -> messages['maxLength'] = "Độ dài tối đa của ".$this -> name." không được vượt quá $max";
                 }
             }
             return $this;
@@ -44,6 +44,21 @@
                 if (empty(trim($this -> value)) || strlen($this -> value) < $min) {
                     $this -> messages['minLength'] = "Độ dài tối thiểu của ".$this -> name." không được bé hơn $min";
                 }
+            }
+            return $this;
+        }
+
+        public function minValue($min) {
+            if ($this -> value < $min) {
+                $this -> messages['minValue'] = "Giá trị tối thiểu của ".$this -> name." không được bé hơn $min";
+            }
+            return $this;
+        }
+
+        
+        public function maxValue($max) {
+            if ($this -> value > $max) {
+                $this -> messages['maxValue'] = "Giá trị tối đa của ".$this -> name." không được vượt quá $max";
             }
             return $this;
         }

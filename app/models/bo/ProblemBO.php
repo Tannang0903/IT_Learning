@@ -5,7 +5,6 @@
         public function __construct() {
             require_once 'app/models/dao/ProblemDAO.php';
             require_once 'app/models/bo/UserBO.php';
-            require_once 'app/core/Validate/Validator.php';
             $this -> userBO = new UserBO();
             $this -> problemDAO = new ProblemDAO();
         }
@@ -53,22 +52,32 @@
         }
 
         public function insert($problem, $testcases) {
-            $entity = $this -> problemDAO -> getById($problem -> getId());
-            if ($entity != null) {
-                return false;
-            }else {
-                $validateName = new Validator($problem -> getName(), 'Name');
-                $validateDescription = new Validator($problem -> getDescription(), 'Description');
-                $validateId = new Validator($problem -> getId(), 'ID');
-                $validateTestcase = new Validator($testcases, 'Testcase');
-                $validateName = $validateName -> required() -> minLength(6) -> validate();
-                $validateDescription = $validateDescription -> required() -> minLength(15) -> validate();
-                $validateId = $validateId -> required() -> minLength(6) -> validate();
-                $validateTestcase = $validateTestcase -> required() -> validate();
-                if ($validateId -> isSuccess() && $validateDescription -> isSuccess() && $validateName -> isSuccess() && $validateTestcase -> isSuccess()) {
-                    $this -> problemDAO -> insert($problem, $testcases);
+            require_once 'app/core/Validate/ValidatorResult.php';
+            $problemValidate = $problem -> validate();
+            if (count($testcases) > 0) {
+                $testcasesValidate = [];
+                foreach ($testcases as $testcase) {
+                    $result = $testcase -> validate();
+                    if ($result -> isFailure()) {
+                        array_push($testcasesValidate, $result -> getMessage());
+                    }
                 }
-                return true;
+                if ($problemValidate -> isSuccess() && count($testcasesValidate) == 0) {
+                    $entity = $this -> problemDAO -> getById($problem -> getId());
+                    if ($entity != null) {
+                        return ['problem' => 'ID đã tồn tại'];
+                    }else{
+                        $this -> problemDAO -> insert($problem, $testcases);
+                        return true;
+                    }
+                }else{
+                    return [
+                        'problem' => $problemValidate -> getMessage(),
+                        'testcases' => $testcasesValidate
+                    ];
+                }
+            }else{
+                return ['testcases' => 'Số lượng testcase phải lớn hơn 0', 'problem' => $problemValidate -> getMessage()];
             }
         }
 
@@ -115,4 +124,3 @@
             return false;
         }
     }
-?>

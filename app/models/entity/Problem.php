@@ -100,5 +100,64 @@
         public function setSuccessSubmit($successSubmit) {
             $this -> successSubmit = $successSubmit;
         }
+
+        public function validate() {
+            require_once 'app/core/Validate/Validator.php';
+            $result = [];
+            if (isset($this -> id)) {
+                $validateId = new Validator($this -> id, 'ID');
+                $validateId = $validateId -> required() -> minLength(6) -> validate();
+                if ($validateId -> isFailure()) {
+                    $result['ID'] = $validateId -> getMessage();
+                }
+            }
+            if (isset($this -> name)) {
+                $validateName = new Validator($this -> name, 'Name');
+                $validateName = $validateName -> required() -> minLength(6) -> validate();
+                if ($validateName -> isFailure()) {
+                    $result['Name'] = $validateName -> getMessage();
+                }
+            }
+            if (isset($this -> description)) {
+                $validateDescription = new Validator($this -> description, 'Description');
+                $validateDescription = $validateDescription -> required() -> minLength(15) -> validate();
+                if ($validateDescription -> isFailure()) {
+                    $result['Description'] = $validateDescription -> getMessage();
+                }
+            }
+            if (isset($this -> score)) {
+                $validateScore = new Validator($this -> score, 'Score');
+                $validateScore = $validateScore -> number() -> minValue(0) -> validate();
+                if ($validateScore -> isFailure()) {
+                    $result['Score'] = $validateScore -> getMessage();
+                }
+            }
+            if (isset($this -> timeLimit)) {
+                $validateTimeLimit = new Validator($this -> timeLimit, 'Time Limit');     
+                $validateTimeLimit = $validateTimeLimit -> number() -> minValue(0) -> validate();
+                if ($validateTimeLimit -> isFailure()) {
+                    $result['TimeLimit'] = $validateTimeLimit -> getMessage();
+                }
+            }
+            if (isset($this -> author)) {
+                $validateAuthor = new Validator($this -> authorID, 'Author');    
+                $validateAuthor = $validateAuthor -> required() -> validate();
+                if ($validateAuthor -> isFailure()) {
+                    $result['Author'] = $validateAuthor -> getMessage();
+                }
+            }
+            if (isset($this -> level)) {
+                $validateLevel = new Validator($this -> level, 'Level');
+                $validateLevel = $validateLevel -> number() -> validate();
+                if ($validateLevel -> isFailure()) {
+                    $result['Level'] = $validateLevel -> getMessage();
+                }
+            }
+            if (count($result) > 0) {
+                return new ValidatorResult(false, $result);
+            }else{
+                return new ValidatorResult(true, null);
+            }
+        }
     }
 ?>

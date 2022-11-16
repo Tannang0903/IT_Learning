@@ -32,15 +32,22 @@
                 $problem -> setTimeLimit($this -> request -> getBody('time'));
                 $testcases = [];
                 require_once 'app/models/entity/Testcase.php';
-                for ($i = 0;$i < count($this -> request -> getBody('input'));$i++) {
-                    $testcase = new Testcase();
-                    $testcase -> setId(uniqid());
-                    $testcase -> setInput($this -> request -> getBody('input')[$i]);
-                    $testcase -> setOutput($this -> request -> getBody('output')[$i]);
-                    $testcase -> setProblemId($problem -> getId());
-                    array_push($testcases, $testcase);
+                if ($this -> request -> getBody('input') != null) {
+                    for ($i = 0;$i < count($this -> request -> getBody('input'));$i++) {
+                        $testcase = new Testcase();
+                        $testcase -> setId(uniqid());
+                        $testcase -> setInput($this -> request -> getBody('input')[$i]);
+                        $testcase -> setOutput($this -> request -> getBody('output')[$i]);
+                        $testcase -> setProblemId($problem -> getId());
+                        array_push($testcases, $testcase);
+                    }
                 }
-                $this -> problemBO -> insert($problem, $testcases);
+                $result = $this -> problemBO -> insert($problem, $testcases);
+                if (is_array($result)) {
+                    print_r($result);
+                }else{
+                    $this -> response -> redirect('admin/problem/index');
+                }
             }
         }
 

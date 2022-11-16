@@ -40,29 +40,33 @@
         ?>
 
         <div class="home_main">
-            <div class="container__problem-search">
-                <div class="container__problem-search-action">
-                    <div class="nice-select left" tabindex="0">
-                        <span class="current">Độ khó</span>
-                        <ul class="list">
-                            <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
-                            <li data-value="easy" class="option">Dễ</li>
-                            <li data-value="medium" class="option">Trung bình</li>
-                            <li data-value="hard" class="option">Khó</li>
-                        </ul>
-                    </div>
-
-
-                    <form action="" class="container__problem-form-search">
-                        <input type="text" class="container__problem-form-input" placeholder="Tìm kiếm">
-                        <i class="container__problem-form-icon fa-solid fa-magnifying-glass"></i>
-                    </form>
-                </div>
-            </div>
             <div class="container__problem-body">
+                <h2 class="title_detail">
+                    Danh sách bài tập
+                </h2>
+                <div class="container__problem-search">
+                    <div class="container__problem-search-action">
+                        <div class="nice-select left" tabindex="0">
+                            <span class="current">Độ khó</span>
+                            <ul class="list">
+                                <li data-value="Nothing" data-display="Tất cả" class="option">Tất cả</li>
+                                <li data-value="easy" class="option">Dễ</li>
+                                <li data-value="medium" class="option">Trung bình</li>
+                                <li data-value="hard" class="option">Khó</li>
+                            </ul>
+                        </div>
+
+
+                        <form action="" class="container__problem-form-search">
+                            <input type="text" class="container__problem-form-input" placeholder="Tìm kiếm">
+                            <i class="container__problem-form-icon fa-solid fa-magnifying-glass"></i>
+                        </form>
+                    </div>
+                </div>
                 <div class="row">
                     <?php
                     foreach ($problems as $problem) {
+                        $percent = $problem -> getTotalSubmit() == 0 ? 0 : round($problem -> getSuccessSubmit() * 100 / $problem -> getTotalSubmit(), 0);
                         echo '
                                 <div class="col c-6">
                                     <div class="problem__card">
@@ -79,13 +83,13 @@
                                         </div>
                                         <div class="col c-3 problem__statistic">
                                             <div class="single-chart">
-                                                <svg viewBox="0 0 36 36" class="circular-chart green">
+                                                <svg viewBox="0 0 36 36" class="circular-chart '.($percent >= 80 ? "green" : ($percent >= 50 ? "blue" : "orange")).'">
                                                     <path class="circle-bg" d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                    <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                                    <text x="19.7" y="21.5" class="percentage">90%</text>
+                                                    <path class="circle" stroke-dasharray="'.$percent.', 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                                    <text x="19.7" y="21.5" class="percentage">'.$percent.'%</text>
                                                 </svg>
                                             </div>
-                                            <a class="problem__do" href="">Làm ngay</a>
+                                            <a class="problem__do" href="'.$this -> url('problem', 'index', $problem -> getId()).'">Làm ngay</a>
                                         </div>
                                     </div>
                                 </div>

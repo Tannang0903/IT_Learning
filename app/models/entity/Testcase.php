@@ -44,5 +44,29 @@
         public function getProblemId() {
             return $this -> problemId;
         }
+
+        public function validate() {
+            require_once 'app/core/Validate/Validator.php';
+            $result = [];
+            if (isset($this -> id)) {
+                $validateId = new Validator($this -> id, 'ID');
+                $validateId = $validateId -> required() -> minLength(6) -> validate();
+                if ($validateId -> isFailure()) {
+                    $result['ID'] = $validateId -> getMessage();
+                }
+            }
+            if (isset($this -> output)) {
+                $validateOutput = new Validator($this -> output, 'Output');
+                $validateOutput = $validateOutput -> required() -> validate();
+                if ($validateOutput -> isFailure()) {
+                    $result['Output'] = $validateOutput -> getMessage();
+                }
+            }
+            if (count($result) > 0) {
+                return new ValidatorResult(false, $result);
+            }else{
+                return new ValidatorResult(true, null);
+            }
+        }
     }
 ?>
